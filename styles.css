@@ -1,0 +1,41 @@
+.hero {
+}
+
+.table {
+  table-layout: fixed;
+  width: 35%;
+  border: double black;
+  border-collapse: collapse;
+  border-width: 3px;
+
+}
+
+.section-header {
+  width: 20%;
+}
+
+.how-to-header {
+  width: 17%;
+}
+
+th,
+td {
+  padding: 5px;
+  border: solid black;
+  border-width: 1px;
+}
+
+.hi {
+  colspan: 3;
+}
+
+.lower-row {
+  border: solid black 2px;
+}
+
+.lower-cell {
+  border: none;
+}
+
+.bonus {
+}
