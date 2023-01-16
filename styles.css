@@ -6,16 +6,17 @@
   font-style: italic;
   letter-spacing: 1px;
   font-weight: bold;
-  font-size: 40px;
-  margin-bottom: 10px;
+  font-size: 60px;
+  margin: 10px;
 }
 
 .table {
   table-layout: fixed;
-  width: 550px;
   border: solid black;
   border-collapse: collapse;
-  border-width: 4px;
+  border-width: 0.2em;
+  float: left;
+  display: inline-block;
 
 }
 
@@ -24,34 +25,52 @@
 }
 
 .how-to-header {
-  width: 17%;
+  width: 20%;
+}
+
+tr {
+  line-height: 20px;
 }
 
 th,
 td {
   padding: 5px;
-  border: solid black 1px;
+  border: solid black 0.1em;
 }
 
 thead {
-  border-bottom: solid black 2px;
+  border-bottom: solid black 0.2em;
 }
 
-.hi {
-  colspan: 3;
+.dice-tray {
+  border: solid black 3px;
+  margin: 10px;
+  padding: 10px;
+  float: left;
 }
 
-.grand {
-  border-top: solid black 2px;
+.dice {
+  margin: 5px; 
+  padding: 5px; 
 }
 
-.lower-row {
-  border: solid black 2px;
+.hold {
+  opacity: 0.3;
 }
 
-.lower-cell {
-  border: none;
+.roll-all {
+  text-align: center;
 }
 
-.bonus {
+.button {
+  background: white;
+  border: solid black 0.2em;
+  border-radius: 0.3em 0.3em 0.3em 0.3em;
+  font-weight: bold;
+}
+
+.button:hover {
+  background: black;
+  color: white;
+  transition: 0.1s;
 }
