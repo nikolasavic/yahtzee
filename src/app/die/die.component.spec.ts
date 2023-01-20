@@ -24,11 +24,19 @@ describe('DieComponent', () => {
     expect(imgElement.querySelector('img').src).toContain("assets/dice-0.svg");
   });
 
-  it('renders correct image based on value', () => {
+  it('renders correct image source based on value input', () => {
     component.value = 5;
     fixture.detectChanges();
 
     const imgElement = fixture.nativeElement;
     expect(imgElement.querySelector('img').src).toContain("assets/dice-5.svg");
+  });
+
+  it('sets correct position based on position input', () => {
+    component.position = 1;
+    fixture.detectChanges();
+
+    const divElement = fixture.nativeElement;
+    expect(divElement.querySelector('div').classList).toContain('dice1');
   });
 });

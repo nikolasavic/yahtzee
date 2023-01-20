@@ -8,4 +8,7 @@ import { Component, Input } from '@angular/core';
 export class DieComponent {
   @Input()
   value = 0;
+
+  @Input()
+  position = 0;
 }
