@@ -1,13 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { DieComponent } from './die/die.component';
+import { DiceTrayComponent } from './dice-tray/dice-tray.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        DieComponent
+        DieComponent,
+        DiceTrayComponent
       ],
     }).compileComponents();
   });

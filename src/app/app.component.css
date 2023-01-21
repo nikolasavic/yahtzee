@@ -57,36 +57,6 @@ thead {
   border-right: solid black 0.2em;
 }
 
-.dice-tray {
-  border: solid black 0.3em;
-  margin: 10px;
-  padding: 10px;
-  float: left;
-  border-radius: 0.3em 0.3em 0.3em 0.3em;
-}
-
-.dice {
-  margin: 5px; 
-  padding: 5px; 
-}
-
 .hold {
   opacity: 0.3;
-}
-
-.roll-all {
-  text-align: center;
-}
-
-.button {
-  background: white;
-  border: solid black 0.2em;
-  border-radius: 0.3em 0.3em 0.3em 0.3em;
-  font-weight: bold;
-}
-
-.button:hover {
-  background: black;
-  color: white;
-  transition: 0.1s;
 }
