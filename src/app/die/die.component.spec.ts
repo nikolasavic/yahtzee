@@ -8,9 +8,8 @@ describe('DieComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DieComponent ]
-    })
-    .compileComponents();
+      declarations: [DieComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DieComponent);
     component = fixture.componentInstance;
@@ -21,7 +20,7 @@ describe('DieComponent', () => {
     const imgElement = fixture.nativeElement;
 
     expect(component.value).toBe(0);
-    expect(imgElement.querySelector('img').src).toContain("assets/dice-0.svg");
+    expect(imgElement.querySelector('img').src).toContain('assets/dice-0.svg');
   });
 
   it('renders correct image source based on value input', () => {
@@ -29,7 +28,7 @@ describe('DieComponent', () => {
     fixture.detectChanges();
 
     const imgElement = fixture.nativeElement;
-    expect(imgElement.querySelector('img').src).toContain("assets/dice-5.svg");
+    expect(imgElement.querySelector('img').src).toContain('assets/dice-5.svg');
   });
 
   it('sets correct position based on position input', () => {

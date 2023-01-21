@@ -9,12 +9,8 @@ describe('DiceTrayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        DieComponent,
-        DiceTrayComponent
-      ]
-    })
-    .compileComponents();
+      declarations: [DieComponent, DiceTrayComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DiceTrayComponent);
     component = fixture.componentInstance;
@@ -22,6 +18,6 @@ describe('DiceTrayComponent', () => {
   });
 
   it('has a straight for default values', () => {
-    expect(component.values).toEqual([1,2,3,4,5]);
+    expect(component.values).toEqual([1, 2, 3, 4, 5]);
   });
 });

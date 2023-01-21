@@ -6,11 +6,7 @@ import { DiceTrayComponent } from './dice-tray/dice-tray.component';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        DieComponent,
-        DiceTrayComponent
-      ],
+      declarations: [AppComponent, DieComponent, DiceTrayComponent],
     }).compileComponents();
   });
 
@@ -33,7 +29,9 @@ describe('AppComponent', () => {
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.roll-all button')?.textContent).toContain('Roll All');
+    expect(compiled.querySelector('.roll-all button')?.textContent).toContain(
+      'Roll All'
+    );
     expect(compiled.querySelectorAll('.dice-tray img').length).toBe(5);
   });
 });

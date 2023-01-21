@@ -11,6 +11,6 @@ describe('RandomnessService', () => {
   });
 
   it('generate random die roll value', () => {
-    expect([1,2,3,4,5,6]).toContain(service.rollD6());
+    expect([1, 2, 3, 4, 5, 6]).toContain(service.rollD6());
   });
 });

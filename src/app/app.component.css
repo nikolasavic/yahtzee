@@ -48,7 +48,8 @@ thead {
   border-bottom: none;
 }
 
-.grand-label, .grand-value {
+.grand-label,
+.grand-value {
   border-top: solid black 0.2em;
 }
 

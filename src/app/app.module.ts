@@ -6,15 +6,9 @@ import { DieComponent } from './die/die.component';
 import { DiceTrayComponent } from './dice-tray/dice-tray.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DieComponent,
-    DiceTrayComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent, DieComponent, DiceTrayComponent],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
