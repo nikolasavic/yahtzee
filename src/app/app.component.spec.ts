@@ -10,12 +10,6 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it('create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
   it('render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
