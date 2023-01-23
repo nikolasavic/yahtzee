@@ -29,10 +29,11 @@ describe('DiceTrayComponent', () => {
     expect(component.values).toEqual([1, 2, 3, 4, 5]);
   });
 
-  describe('when roll all buttom clicked', () => {
+  describe('when the roll all button is clicked', () => {
     it('rolls all dice', () => {
       component.values = [1, 1, 1, 1, 1];
-      component.rollAll();
+      let button =  fixture.nativeElement.querySelector('button');
+      button.click();
 
       expect(component.values).toEqual([3, 3, 3, 3, 3]);
     });

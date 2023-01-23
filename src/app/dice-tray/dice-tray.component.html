@@ -1,6 +1,6 @@
 <div class="dice-tray">
   <div class="roll-all">
-    <button class="button">Roll All</button>
+    <button (click)="rollAll()" class="button">Roll All</button>
   </div>
   <die [value]="values[0]" [position]="1"></die>
   <die [value]="values[1]" [position]="2"></die>
