@@ -10,4 +10,10 @@ export class DiceTrayComponent {
   constructor(private random: RandomnessService) {}
 
   values: number[] = [1, 2, 3, 4, 5];
+
+  rollAll() {
+    this.values = this.values.map((v) => {
+      return this.random.rollD6();
+    });
+  }
 }
