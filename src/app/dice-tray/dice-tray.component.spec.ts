@@ -10,9 +10,7 @@ describe('DiceTrayComponent', () => {
   let mockRandomService;
 
   beforeEach(async () => {
-    mockRandomService = jasmine.createSpyObj('RandomnessService', [
-      'rollD6',
-    ]);
+    mockRandomService = jasmine.createSpyObj('RandomnessService', ['rollD6']);
     mockRandomService.rollD6.and.returnValue(3);
 
     await TestBed.configureTestingModule({
@@ -32,7 +30,7 @@ describe('DiceTrayComponent', () => {
   describe('when the roll all button is clicked', () => {
     it('rolls all dice', () => {
       component.values = [1, 1, 1, 1, 1];
-      let button =  fixture.nativeElement.querySelector('button');
+      let button = fixture.nativeElement.querySelector('button');
       button.click();
 
       expect(component.values).toEqual([3, 3, 3, 3, 3]);
