@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'die',
@@ -10,5 +10,16 @@ export class DieComponent {
   value = 0;
 
   @Input()
-  position = 0;
+  hold: boolean = false;
+
+  @Input()
+  position: number = 0;
+
+  @Output()
+  holdToggled = new EventEmitter<number>();
+
+  emitToggleHold() {
+    this.hold = !this.hold;
+    this.holdToggled.emit(this.position);
+  }
 }
