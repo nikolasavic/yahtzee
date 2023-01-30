@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { DiceTrayComponent } from './dice-tray.component';
-import { DieComponent } from '../die/die.component';
 import { RandomnessService } from '../randomness.service';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('DiceTrayComponent', () => {
   let component: DiceTrayComponent;
@@ -14,8 +15,9 @@ describe('DiceTrayComponent', () => {
     mockRandomService.rollD6.and.returnValue(3);
 
     await TestBed.configureTestingModule({
-      declarations: [DieComponent, DiceTrayComponent],
+      declarations: [DiceTrayComponent],
       providers: [{ provide: RandomnessService, useValue: mockRandomService }],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DiceTrayComponent);
@@ -33,5 +35,23 @@ describe('DiceTrayComponent', () => {
     button.click();
 
     expect(component.values).toEqual([3, 3, 3, 3, 3]);
+  });
+
+  it('handles holdToggled event', () => {
+    let die = fixture.debugElement.query(By.css('die'));
+    spyOn(component, 'toggleDie');
+
+    die.triggerEventHandler('holdToggled', 0);
+    fixture.detectChanges();
+
+    expect(component.toggleDie).toHaveBeenCalledOnceWith(0);
+  });
+
+  it('toggleDie sets hold to true', () => {
+    expect(component.onHold).toEqual([false, false, false, false, false]);
+
+    component.toggleDie(1);
+
+    expect(component.onHold).toEqual([true, false, false, false, false]);
   });
 });
