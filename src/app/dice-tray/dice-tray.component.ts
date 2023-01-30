@@ -13,8 +13,9 @@ export class DiceTrayComponent {
   onHold: boolean[] = [false, false, false, false, false];
 
   rollAll() {
-    this.values = this.values.map((v) => {
-      return this.random.rollD6();
+    this.values = this.values.map((value, index) => {
+      if (this.onHold[index]) return value;
+      else return this.random.rollD6();
     });
   }
 

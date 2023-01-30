@@ -32,26 +32,39 @@ describe('DiceTrayComponent', () => {
   it('rolls all dice when roll all button clicked', () => {
     component.values = [1, 1, 1, 1, 1];
     let button = fixture.nativeElement.querySelector('button');
+
     button.click();
 
     expect(component.values).toEqual([3, 3, 3, 3, 3]);
   });
 
-  it('handles holdToggled event', () => {
-    let die = fixture.debugElement.query(By.css('die'));
-    spyOn(component, 'toggleDie');
+  describe('holds', () => {
+    it('handles holdToggled event', () => {
+      let die = fixture.debugElement.query(By.css('die'));
+      spyOn(component, 'toggleDie');
 
-    die.triggerEventHandler('holdToggled', 0);
-    fixture.detectChanges();
+      die.triggerEventHandler('holdToggled', 0);
+      fixture.detectChanges();
 
-    expect(component.toggleDie).toHaveBeenCalledOnceWith(0);
-  });
+      expect(component.toggleDie).toHaveBeenCalledOnceWith(0);
+    });
 
-  it('toggleDie sets hold to true', () => {
-    expect(component.onHold).toEqual([false, false, false, false, false]);
+    it('toggleDie sets hold to true', () => {
+      expect(component.onHold).toEqual([false, false, false, false, false]);
 
-    component.toggleDie(1);
+      component.toggleDie(1);
 
-    expect(component.onHold).toEqual([true, false, false, false, false]);
+      expect(component.onHold).toEqual([true, false, false, false, false]);
+    });
+
+    it('only rolls dice not on hold', () => {
+      component.onHold = [false, false, true, true, false];
+      expect(component.values).toEqual([1, 2, 3, 4, 5]);
+      let button = fixture.nativeElement.querySelector('button');
+
+      button.click();
+
+      expect(component.values).toEqual([3, 3, 3, 4, 3]);
+    });
   });
 });
