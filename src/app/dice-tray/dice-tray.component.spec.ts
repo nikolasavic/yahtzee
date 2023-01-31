@@ -8,6 +8,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 describe('DiceTrayComponent', () => {
   let component: DiceTrayComponent;
   let fixture: ComponentFixture<DiceTrayComponent>;
+  let nativeEl: any;
   let mockRandomService;
 
   beforeEach(async () => {
@@ -22,6 +23,7 @@ describe('DiceTrayComponent', () => {
 
     fixture = TestBed.createComponent(DiceTrayComponent);
     component = fixture.componentInstance;
+    nativeEl = fixture.nativeElement;
     fixture.detectChanges();
   });
 
@@ -31,7 +33,7 @@ describe('DiceTrayComponent', () => {
 
   it('rolls all dice when roll all button clicked', () => {
     component.values = [1, 1, 1, 1, 1];
-    let button = fixture.nativeElement.querySelector('button');
+    let button = nativeEl.querySelector('button');
 
     button.click();
 
@@ -60,7 +62,7 @@ describe('DiceTrayComponent', () => {
     it('only rolls dice not on hold', () => {
       component.onHold = [false, false, true, true, false];
       expect(component.values).toEqual([1, 2, 3, 4, 5]);
-      let button = fixture.nativeElement.querySelector('button');
+      let button = nativeEl.querySelector('button');
 
       button.click();
 
