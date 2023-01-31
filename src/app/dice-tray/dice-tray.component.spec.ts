@@ -9,6 +9,7 @@ describe('DiceTrayComponent', () => {
   let component: DiceTrayComponent;
   let fixture: ComponentFixture<DiceTrayComponent>;
   let nativeEl: any;
+  let debugEl: any;
   let mockRandomService;
 
   beforeEach(async () => {
@@ -24,6 +25,7 @@ describe('DiceTrayComponent', () => {
     fixture = TestBed.createComponent(DiceTrayComponent);
     component = fixture.componentInstance;
     nativeEl = fixture.nativeElement;
+    debugEl = fixture.debugElement;
     fixture.detectChanges();
   });
 
@@ -46,7 +48,7 @@ describe('DiceTrayComponent', () => {
 
   describe('holds', () => {
     it('handles holdToggled event', () => {
-      let die = fixture.debugElement.query(By.css('die'));
+      let die = debugEl.query(By.css('die'));
       spyOn(component, 'toggleDie');
 
       die.triggerEventHandler('holdToggled', 0);
@@ -71,6 +73,16 @@ describe('DiceTrayComponent', () => {
       button.click();
 
       expect(component.values).toEqual([3, 3, 3, 4, 3]);
+    });
+  });
+
+  describe('paused', () => {
+    it('sends children pause input', () => {
+      component.paused = true;
+      let die = nativeEl.querySelector('die');
+      fixture.detectChanges();
+
+      expect(die.classList).not.toContain('hold');
     });
   });
 });
