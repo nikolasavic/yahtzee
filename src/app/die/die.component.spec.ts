@@ -76,4 +76,17 @@ describe('DieComponent', () => {
       expect(die.classList).toContain('hold');
     });
   });
+
+  describe('paused', () => {
+    it('does not emit', () => {
+      component.paused = true;
+      let die = nativeEl.querySelector('img');
+      const emitSpy = spyOn(component.holdToggled, 'emit');
+
+      die.click();
+
+      expect(component.hold).toBe(false);
+      expect(emitSpy).not.toHaveBeenCalled();
+    });
+  });
 });

@@ -22,7 +22,9 @@ export class DieComponent {
   holdToggled = new EventEmitter<number>();
 
   emitToggleHold() {
-    this.hold = !this.hold;
-    this.holdToggled.emit(this.position);
+    if(!this.paused) {
+      this.hold = !this.hold;
+      this.holdToggled.emit(this.position);
+    }
   }
 }
