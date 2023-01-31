@@ -14,10 +14,12 @@ export class DiceTrayComponent {
   onHold: boolean[] = [false, false, false, false, false];
 
   rollAll() {
-    this.values = this.values.map((value, index) => {
-      if (this.onHold[index]) return value;
-      else return this.random.rollD6();
-    });
+    if (!this.paused) {
+      this.values = this.values.map((value, index) => {
+        if (this.onHold[index]) return value;
+        else return this.random.rollD6();
+      });
+    }
   }
 
   toggleDie(diePosition: any) {

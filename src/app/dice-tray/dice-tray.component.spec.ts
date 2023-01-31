@@ -84,5 +84,13 @@ describe('DiceTrayComponent', () => {
 
       expect(die.classList).not.toContain('hold');
     });
+
+    it('does not roll all dice', () => {
+      component.paused = true;
+
+      component.rollAll();
+
+      expect(component.values).toEqual([1, 2, 3, 4, 5]);
+    });
   });
 });
