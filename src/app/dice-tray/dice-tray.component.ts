@@ -9,6 +9,7 @@ import { RandomnessService } from '../randomness.service';
 export class DiceTrayComponent {
   constructor(private random: RandomnessService) {}
 
+  paused: boolean = false;
   values: number[] = [1, 2, 3, 4, 5];
   onHold: boolean[] = [false, false, false, false, false];
 

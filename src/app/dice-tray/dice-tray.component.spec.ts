@@ -27,6 +27,10 @@ describe('DiceTrayComponent', () => {
     fixture.detectChanges();
   });
 
+  it('is not paused by default', () => {
+    expect(component.paused).toEqual(false);
+  });
+
   it('has a straight for default values', () => {
     expect(component.values).toEqual([1, 2, 3, 4, 5]);
   });
