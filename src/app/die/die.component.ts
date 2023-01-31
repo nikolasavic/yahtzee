@@ -13,6 +13,9 @@ export class DieComponent {
   hold: boolean = false;
 
   @Input()
+  paused: boolean = false;
+
+  @Input()
   position: number = 0;
 
   @Output()

@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-
 import { DieComponent } from './die.component';
 
 describe('DieComponent', () => {
@@ -27,6 +26,10 @@ describe('DieComponent', () => {
 
   it('default hold value is false', () => {
     expect(component.hold).toBe(false);
+  });
+
+  it('default paused value is false', () => {
+    expect(component.paused).toBe(false);
   });
 
   it('renders correct image source based on value input', () => {
