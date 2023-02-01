@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { DiceTrayComponent } from './dice-tray.component';
-import { RandomnessService } from '../randomness.service';
+import { RandomnessService } from '../../services/randomness.service';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('DiceTrayComponent', () => {

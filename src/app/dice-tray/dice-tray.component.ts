@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { RandomnessService } from '../randomness.service';
-
+import { RandomnessService } from '../../services/randomness.service';
 @Component({
   selector: 'dice-tray',
   templateUrl: './dice-tray.component.html',
