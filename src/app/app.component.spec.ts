@@ -1,31 +1,30 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { DieComponent } from './die/die.component';
 import { DiceTrayComponent } from './dice-tray/dice-tray.component';
 
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let nativeEl: any;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AppComponent, DieComponent, DiceTrayComponent],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    nativeEl = fixture.nativeElement;
+    fixture.detectChanges();
   });
 
   it('render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.title')?.textContent).toContain('Yahtzee!');
+    expect(nativeEl.querySelector('.title').textContent).toContain('Yahtzee!');
   });
 
   it('render dice tray', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.roll-all button')?.textContent).toContain(
+    expect(nativeEl.querySelector('button.roll-all').textContent).toContain(
       'Roll All'
     );
-    expect(compiled.querySelectorAll('.dice-tray img').length).toBe(5);
+    expect(nativeEl.querySelectorAll('div.dice-tray die img').length).toBe(5);
   });
 });
