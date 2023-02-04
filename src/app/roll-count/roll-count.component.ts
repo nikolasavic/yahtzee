@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-roll-count',
+  selector: 'roll-count',
   templateUrl: './roll-count.component.html',
   styleUrls: ['./roll-count.component.css'],
 })

@@ -1,5 +1,8 @@
 <div class="dice-tray">
   <div class="center">
+    <roll-count [round]="rollRound"></roll-count>
+  </div>
+  <div class="center">
     <button (click)="rollAll()" class="roll-all button">Roll All</button>
   </div>
   <die

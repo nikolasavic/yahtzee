@@ -2,6 +2,7 @@ import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { DieComponent } from './die/die.component';
 import { DiceTrayComponent } from './dice-tray/dice-tray.component';
+import { RollCountComponent } from './roll-count/roll-count.component';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -9,7 +10,12 @@ describe('AppComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent, DieComponent, DiceTrayComponent],
+      declarations: [
+        AppComponent,
+        DieComponent,
+        DiceTrayComponent,
+        RollCountComponent,
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
@@ -26,5 +32,11 @@ describe('AppComponent', () => {
       'Roll All'
     );
     expect(nativeEl.querySelectorAll('div.dice-tray die img').length).toBe(5);
+  });
+
+  it('render roll indicators', () => {
+    expect(nativeEl.querySelector('roll-count img').src).toContain(
+      'unfilledCircle.svg'
+    );
   });
 });

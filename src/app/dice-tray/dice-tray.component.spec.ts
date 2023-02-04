@@ -93,4 +93,14 @@ describe('DiceTrayComponent', () => {
       expect(component.values).toEqual([1, 2, 3, 4, 5]);
     });
   });
+
+  describe('roll indicators', () => {
+    it('sends round to indicator', () => {
+      component.rollRound = 2;
+      let rollIndicator = debugEl.query(By.css('roll-count'));
+      fixture.detectChanges();
+
+      expect(rollIndicator.properties.round).toBe(2);
+    });
+  });
 });
