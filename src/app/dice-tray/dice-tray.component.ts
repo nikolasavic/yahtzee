@@ -10,7 +10,7 @@ export class DiceTrayComponent {
 
   rollRound = 0;
   paused: boolean = false;
-  values: number[] = [1, 2, 3, 4, 5];
+  values: number[] = [0,0,0,0,0];
   onHold: boolean[] = [false, false, false, false, false];
 
   rollAll() {

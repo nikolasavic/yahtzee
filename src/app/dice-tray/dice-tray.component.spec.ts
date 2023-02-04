@@ -34,7 +34,7 @@ describe('DiceTrayComponent', () => {
   });
 
   it('has a straight for default values', () => {
-    expect(component.values).toEqual([1, 2, 3, 4, 5]);
+    expect(component.values).toEqual([0,0,0,0,0]);
   });
 
   it('rolls all dice when roll all button clicked', () => {
