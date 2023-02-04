@@ -79,10 +79,10 @@ describe('DiceTrayComponent', () => {
   describe('paused', () => {
     it('sends children pause input', () => {
       component.paused = true;
-      let die = nativeEl.querySelector('die');
+      let die = debugEl.query(By.css('die'));
       fixture.detectChanges();
 
-      expect(die.classList).not.toContain('hold');
+      expect(die.properties.paused).toBe(true);
     });
 
     it('does not roll all dice', () => {
