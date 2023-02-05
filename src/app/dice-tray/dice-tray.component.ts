@@ -26,4 +26,11 @@ export class DiceTrayComponent {
     const index = diePosition - 1;
     this.onHold[index] = !this.onHold[index];
   }
+
+  reset() {
+    this.rollRound = 0;
+    this.paused = false;
+    this.values = [0, 0, 0, 0, 0];
+    this.onHold = [false, false, false, false, false];
+  }
 }

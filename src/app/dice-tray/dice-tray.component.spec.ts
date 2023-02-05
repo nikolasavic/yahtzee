@@ -46,6 +46,20 @@ describe('DiceTrayComponent', () => {
     expect(component.values).toEqual([3, 3, 3, 3, 3]);
   });
 
+  it('resets internal state', () => {
+    component.values = [1, 1, 1, 1, 1];
+    component.onHold = [false, true, true, false, false];
+    component.rollRound = 3;
+    component.paused = true;
+
+    component.reset();
+
+    expect(component.values).toEqual([0, 0, 0, 0, 0]);
+    expect(component.onHold).toEqual([false, false, false, false, false]);
+    expect(component.rollRound).toBe(0);
+    expect(component.paused).toBe(false);
+  });
+
   describe('holds', () => {
     it('handles holdToggled event', () => {
       let die = debugEl.query(By.css('die'));
