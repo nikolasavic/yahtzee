@@ -15,10 +15,16 @@ export class DiceTrayComponent {
 
   rollAll() {
     if (!this.paused) {
+      this.rollRound++;
+
       this.values = this.values.map((value, index) => {
         if (this.onHold[index]) return value;
         else return this.random.rollD6();
       });
+
+      if (this.rollRound >= 3) {
+        this.paused = true;
+      }
     }
   }
 

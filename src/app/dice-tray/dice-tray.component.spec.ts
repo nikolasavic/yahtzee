@@ -117,5 +117,41 @@ describe('DiceTrayComponent', () => {
 
       expect(rollIndicator.properties.round).toBe(2);
     });
+
+    it('it increases after each roll', () => {
+      expect(component.rollRound).toBe(0);
+
+      component.rollAll();
+
+      expect(component.rollRound).toBe(1);
+
+      component.rollAll();
+
+      expect(component.rollRound).toBe(2);
+
+      component.rollAll();
+
+      expect(component.rollRound).toBe(3);
+    });
+
+    it('does not increase if paused', () => {
+      component.paused = true;
+      expect(component.rollRound).toBe(0);
+
+      component.rollAll();
+
+      expect(component.rollRound).toBe(0);
+    });
+
+    it('pauses after 3 rolls', () => {
+      expect(component.rollRound).toBe(0);
+      expect(component.paused).toBe(false);
+
+      component.rollAll();
+      component.rollAll();
+      component.rollAll();
+
+      expect(component.paused).toBe(true);
+    });
   });
 });
