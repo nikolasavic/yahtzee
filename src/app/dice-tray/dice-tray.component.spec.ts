@@ -33,8 +33,8 @@ describe('DiceTrayComponent', () => {
     expect(component.paused).toEqual(false);
   });
 
-  it('has a straight for default values', () => {
-    expect(component.values).toEqual([0,0,0,0,0]);
+  it('has a blank dice for default values', () => {
+    expect(component.values).toEqual([0, 0, 0, 0, 0]);
   });
 
   it('rolls all dice when roll all button clicked', () => {
@@ -67,12 +67,12 @@ describe('DiceTrayComponent', () => {
 
     it('only rolls dice not on hold', () => {
       component.onHold = [false, false, true, true, false];
-      expect(component.values).toEqual([1, 2, 3, 4, 5]);
+      component.values = [1, 1, 1, 1, 1];
       let button = nativeEl.querySelector('button');
 
       button.click();
 
-      expect(component.values).toEqual([3, 3, 3, 4, 3]);
+      expect(component.values).toEqual([3, 3, 1, 1, 3]);
     });
   });
 
@@ -87,10 +87,11 @@ describe('DiceTrayComponent', () => {
 
     it('does not roll all dice', () => {
       component.paused = true;
+      component.values = [1, 1, 1, 1, 1];
 
       component.rollAll();
 
-      expect(component.values).toEqual([1, 2, 3, 4, 5]);
+      expect(component.values).toEqual([1, 1, 1, 1, 1]);
     });
   });
 
