@@ -88,6 +88,19 @@ describe('DiceTrayComponent', () => {
 
       expect(component.values).toEqual([3, 3, 1, 1, 3]);
     });
+
+    it('unholds all dice after third roll', () => {
+      component.onHold = [true, true, true, false, false];
+      let die = debugEl.query(By.css('die'));
+
+      component.rollAll();
+      component.rollAll();
+      component.rollAll();
+      fixture.detectChanges();
+
+      expect(component.onHold).toEqual([false, false, false, false, false]);
+      expect(die.properties.hold).toBe(false);
+    });
   });
 
   describe('paused', () => {

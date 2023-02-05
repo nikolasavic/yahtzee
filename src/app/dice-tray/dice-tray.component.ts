@@ -23,6 +23,7 @@ export class DiceTrayComponent {
       });
 
       if (this.rollRound >= 3) {
+        this.onHold = [false, false, false, false, false];
         this.paused = true;
       }
     }
