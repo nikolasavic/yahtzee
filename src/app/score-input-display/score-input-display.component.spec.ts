@@ -25,5 +25,9 @@ describe('ScoreInputDisplayComponent', () => {
 
       expect(nativeEl.innerText).toContain('34');
     });
+
+    it('does not show anything if unscored', () => {
+      expect(nativeEl.innerText).toBe('');
+    });
   });
 });

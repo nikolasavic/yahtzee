@@ -3,6 +3,7 @@ import { AppComponent } from './app.component';
 import { DieComponent } from './die/die.component';
 import { DiceTrayComponent } from './dice-tray/dice-tray.component';
 import { RollCountComponent } from './roll-count/roll-count.component';
+import { ScoreInputDisplayComponent } from './score-input-display/score-input-display.component';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -15,6 +16,7 @@ describe('AppComponent', () => {
         DieComponent,
         DiceTrayComponent,
         RollCountComponent,
+        ScoreInputDisplayComponent,
       ],
     }).compileComponents();
 
