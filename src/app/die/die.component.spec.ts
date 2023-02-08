@@ -49,7 +49,7 @@ describe('DieComponent', () => {
   describe('holds', () => {
     it('toggle hold when clicked', () => {
       component.value = 1;
-      let die = nativeEl.querySelector('img');
+      let die = nativeEl.querySelector('div.dice');
       expect(component.hold).toBe(false);
 
       die.click();
@@ -79,7 +79,7 @@ describe('DieComponent', () => {
     });
 
     it('does not hold blank dice', () => {
-      let die = nativeEl.querySelector('img');
+      let die = nativeEl.querySelector('div.dice');
       expect(component.hold).toBe(false);
       expect(component.value).toBe(0);
 
@@ -92,7 +92,7 @@ describe('DieComponent', () => {
   describe('paused', () => {
     it('does not emit', () => {
       component.paused = true;
-      let die = nativeEl.querySelector('img');
+      let die = nativeEl.querySelector('div.dice');
       const emitSpy = spyOn(component.holdToggled, 'emit');
 
       die.click();

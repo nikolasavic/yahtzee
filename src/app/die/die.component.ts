@@ -30,4 +30,8 @@ export class DieComponent {
       this.holdToggled.emit(this.position);
     }
   }
+
+  applyHoldCss() {
+    return this.hold ? 'hold' : '';
+  }
 }
