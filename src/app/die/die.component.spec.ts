@@ -48,6 +48,7 @@ describe('DieComponent', () => {
 
   describe('holds', () => {
     it('toggle hold when clicked', () => {
+      component.value = 1;
       let die = nativeEl.querySelector('img');
       expect(component.hold).toBe(false);
 
@@ -57,6 +58,7 @@ describe('DieComponent', () => {
     });
 
     it('emit holdToggled when clicked', () => {
+      component.value = 1;
       const emitSpy = spyOn(component.holdToggled, 'emit');
 
       component.emitToggleHold();
@@ -74,6 +76,16 @@ describe('DieComponent', () => {
 
       expect(component.hold).toBe(true);
       expect(die.classList).toContain('hold');
+    });
+
+    it('does not hold blank dice', () => {
+      let die = nativeEl.querySelector('img');
+      expect(component.hold).toBe(false);
+      expect(component.value).toBe(0);
+
+      die.click();
+
+      expect(component.hold).toBe(false);
     });
   });
 
