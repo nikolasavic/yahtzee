@@ -1,1 +1,6 @@
-{{ score }}
+<ng-container *ngIf="scoring">
+  <button class="button">score</button>
+</ng-container>
+<ng-container *ngIf="!scoring">
+  {{ score }}
+</ng-container>

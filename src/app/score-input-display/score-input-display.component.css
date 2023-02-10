@@ -1,0 +1,17 @@
+:host {
+  font-family: "Comic Sans MS";
+  font-weight: bold;
+}
+
+.button {
+  background: white;
+  border: solid black 0.2em;
+  border-radius: 0.3em 0.3em 0.3em 0.3em;
+  font-weight: bold;
+}
+
+.button:hover {
+  background: black;
+  color: white;
+  transition: 0.1s;
+}
