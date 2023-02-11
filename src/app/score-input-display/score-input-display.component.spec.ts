@@ -30,4 +30,13 @@ describe('ScoreInputDisplayComponent', () => {
       expect(nativeEl.innerText).toBe('');
     });
   });
+
+  describe('score', () => {
+    it('shows score button', () => {
+      component.scoring = true;
+      fixture.detectChanges();
+
+      expect(nativeEl.innerText).toContain('score');
+    });
+  });
 });

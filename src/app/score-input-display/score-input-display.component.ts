@@ -8,4 +8,7 @@ import { Component, Input } from '@angular/core';
 export class ScoreInputDisplayComponent {
   @Input()
   score: number | null = null;
+
+  @Input()
+  scoring: boolean = false;
 }
