@@ -25,20 +25,24 @@ describe('AppComponent', () => {
     fixture.detectChanges();
   });
 
-  it('render title', () => {
-    expect(nativeEl.querySelector('.title').textContent).toContain('Yahtzee!');
-  });
+  describe('renders', () => {
+    it('title', () => {
+      expect(nativeEl.querySelector('.title').textContent).toContain(
+        'Yahtzee!'
+      );
+    });
 
-  it('render dice tray', () => {
-    expect(nativeEl.querySelector('button.roll-all').textContent).toContain(
-      'Roll All'
-    );
-    expect(nativeEl.querySelectorAll('div.dice-tray die img').length).toBe(5);
-  });
+    it('dice tray', () => {
+      expect(nativeEl.querySelector('button.roll-all').textContent).toContain(
+        'Roll All'
+      );
+      expect(nativeEl.querySelectorAll('div.dice-tray die img').length).toBe(5);
+    });
 
-  it('render roll indicators', () => {
-    expect(nativeEl.querySelector('roll-count img').src).toContain(
-      'unfilledCircle.svg'
-    );
+    it('roll indicators', () => {
+      expect(nativeEl.querySelector('roll-count img').src).toContain(
+        'unfilledCircle.svg'
+      );
+    });
   });
 });
