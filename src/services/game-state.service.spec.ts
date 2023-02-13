@@ -11,15 +11,34 @@ describe('GameStateService', () => {
   });
 
   describe('dice$ observable', () => {
-    it('updateDice is source for dice$', () => {
+    it('updateDice() is a feed for dice$', () => {
       let result: number[] = [];
+      const rolls = [3, 1, 4, 1, 5];
       service.dice$.subscribe((roll) => {
         result = roll;
       });
 
-      service.updateDice([1, 2, 3, 4, 5]);
+      service.updateDice(rolls);
 
-      expect(result).toEqual([1, 2, 3, 4, 5]);
+      expect(result).toEqual(rolls);
+    });
+  });
+
+  describe('scoreSheet$ observable', () => {
+    it('updateScoreSheet() is a feed for scoreSheet$', () => {
+      let result: object = {};
+      const scores = {
+        aces: 1,
+        twos: 4,
+        threes: null,
+      };
+      service.scoreSheet$.subscribe((scoreSheet) => {
+        result = scoreSheet;
+      });
+
+      service.updateScoreSheet(scores);
+
+      expect(result).toEqual(scores);
     });
   });
 });
