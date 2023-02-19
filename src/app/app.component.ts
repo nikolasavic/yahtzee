@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { GameStateService } from '../services/game-state.service';
 import { Subscription } from 'rxjs';
 
@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   scores: any;
   scoreSubscription: Subscription;
 
@@ -15,5 +15,9 @@ export class AppComponent {
     this.scoreSubscription = state.scoreSheet$.subscribe((scoreSheet) => {
       this.scores = scoreSheet;
     });
+  }
+
+  ngOnDestroy() {
+    this.scoreSubscription.unsubscribe();
   }
 }

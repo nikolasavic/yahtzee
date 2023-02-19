@@ -6,7 +6,7 @@ import { RollCountComponent } from './roll-count/roll-count.component';
 import { ScoreInputDisplayComponent } from './score-input-display/score-input-display.component';
 import { GameStateService } from '../services/game-state.service';
 
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -62,6 +62,15 @@ describe('AppComponent', () => {
   });
 
   describe('score sheet', () => {
+    it('unsubscribe on ngOnDestroy', () => {
+      component.scoreSubscription = new Subscription();
+      spyOn(component.scoreSubscription, 'unsubscribe');
+
+      component.ngOnDestroy();
+
+      expect(component.scoreSubscription.unsubscribe).toHaveBeenCalledTimes(1);
+    });
+
     it('aces', () => {
       expect(component.scores['aces']).toBe(1);
     });
