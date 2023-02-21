@@ -65,27 +65,27 @@ export class ScoreSheet {
   }
 
   readonly aces: number | undefined;
-  twos: number | undefined;
-  threes: number | undefined;
-  fours: number | undefined;
-  fives: number | undefined;
-  sixes: number | undefined;
+  readonly twos: number | undefined;
+  readonly threes: number | undefined;
+  readonly fours: number | undefined;
+  readonly fives: number | undefined;
+  readonly sixes: number | undefined;
 
-  totalUpper: number | undefined;
-  bonusUpper: boolean | undefined;
-  grandTotalUpper: number | undefined;
+  readonly totalUpper: number | undefined;
+  readonly bonusUpper: boolean | undefined;
+  readonly grandTotalUpper: number | undefined;
 
-  threeKind: number | undefined;
-  fourKind: number | undefined;
-  fullHouse: number | undefined;
-  smallStr: number | undefined;
-  largeStr: number | undefined;
-  yahtzee: number | undefined;
-  chance: number | undefined;
+  readonly threeKind: number | undefined;
+  readonly fourKind: number | undefined;
+  readonly fullHouse: number | undefined;
+  readonly smallStr: number | undefined;
+  readonly largeStr: number | undefined;
+  readonly yahtzee: number | undefined;
+  readonly chance: number | undefined;
 
-  yahtzeeBonusCounter: number | undefined;
-  yahtzeeBonusTotal: number | undefined;
-  grandTotalLower: number | undefined;
+  readonly yahtzeeBonusCounter: number | undefined;
+  readonly yahtzeeBonusTotal: number | undefined;
+  readonly grandTotalLower: number | undefined;
 
-  grandTotal: number | undefined;
+  readonly grandTotal: number | undefined;
 }
