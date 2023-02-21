@@ -1,26 +1,91 @@
 export class ScoreSheet {
-  aces: number | null = null;
-  twos: number | null = null;
-  threes: number | null = null;
-  fours: number | null = null;
-  fives: number | null = null;
-  sixes: number | null = null;
+  constructor({
+    aces,
+    twos,
+    threes,
+    fours,
+    fives,
+    sixes,
+    totalUpper,
+    bonusUpper,
+    grandTotalUpper,
+    threeKind,
+    fourKind,
+    fullHouse,
+    smallStr,
+    largeStr,
+    yahtzee,
+    chance,
+    yahtzeeBonusCounter,
+    yahtzeeBonusTotal,
+    grandTotalLower,
+    grandTotal,
+  }: {
+    aces?: number;
+    twos?: number;
+    threes?: number;
+    fours?: number;
+    fives?: number;
+    sixes?: number;
+    totalUpper?: number;
+    bonusUpper?: boolean;
+    grandTotalUpper?: number;
+    threeKind?: number;
+    fourKind?: number;
+    fullHouse?: number;
+    smallStr?: number;
+    largeStr?: number;
+    yahtzee?: number;
+    chance?: number;
+    yahtzeeBonusCounter?: number;
+    yahtzeeBonusTotal?: number;
+    grandTotalLower?: number;
+    grandTotal?: number;
+  }) {
+    this.aces = aces;
+    this.twos = twos;
+    this.threes = threes;
+    this.fours = fours;
+    this.fives = fives;
+    this.sixes = sixes;
+    this.totalUpper = totalUpper;
+    this.bonusUpper = bonusUpper;
+    this.grandTotalUpper = grandTotalUpper;
+    this.threeKind = threeKind;
+    this.fourKind = fourKind;
+    this.fullHouse = fullHouse;
+    this.smallStr = smallStr;
+    this.largeStr = largeStr;
+    this.yahtzee = yahtzee;
+    this.chance = chance;
+    this.yahtzeeBonusCounter = yahtzeeBonusCounter;
+    this.yahtzeeBonusTotal = yahtzeeBonusTotal;
+    this.grandTotalLower = grandTotalLower;
+    this.grandTotal = grandTotal;
+  }
 
-  totalUpper: number | null = null;
-  bonusUpper: boolean = false;
-  grandTotalUpper: number | null = null;
+  readonly aces: number | undefined;
+  twos: number | undefined;
+  threes: number | undefined;
+  fours: number | undefined;
+  fives: number | undefined;
+  sixes: number | undefined;
 
-  threeKind: number | null = null;
-  fourKind: number | null = null;
-  fullHouse: number | null = null;
-  smallStr: number | null = null;
-  largeStr: number | null = null;
-  yahtzee: number | null = null;
-  chance: number | null = null;
+  totalUpper: number | undefined;
+  bonusUpper: boolean | undefined;
+  grandTotalUpper: number | undefined;
 
-  yahtzeeBonusCounter: number | null = null;
-  yahtzeeBonusTotal: number | null = null;
-  grandTotalLower: number | null = null;
+  threeKind: number | undefined;
+  fourKind: number | undefined;
+  fullHouse: number | undefined;
+  smallStr: number | undefined;
+  largeStr: number | undefined;
+  yahtzee: number | undefined;
+  chance: number | undefined;
 
-  grandTotal: number | null = null;
+  yahtzeeBonusCounter: number | undefined;
+  yahtzeeBonusTotal: number | undefined;
+  grandTotalLower: number | undefined;
+
+  grandTotal: number | undefined;
 }
