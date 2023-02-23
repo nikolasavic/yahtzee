@@ -14,57 +14,57 @@
     <tr>
       <th>Aces</th>
       <th>Count and add only aces</th>
-      <td><score></score></td>
+      <td><score id="aces" [score]="scores.aces"></score></td>
       <th>Three of a kind</th>
       <th>Add total of all dice</th>
-      <td><score></score></td>
+      <td><score id="threeKind" [score]="scores.threeKind"></score></td>
     </tr>
     <tr>
       <th>Twos</th>
       <th>Count and add only twos</th>
-      <td><score></score></td>
+      <td><score id="twos" [score]="scores.twos"></score></td>
       <th>Four of a kind</th>
       <th>Add total of all dice</th>
-      <td><score></score></td>
+      <td><score id="fourKind" [score]="scores.fourKind"></score></td>
     </tr>
     <tr>
       <th>Threes</th>
       <th>Count and add only threes</th>
-      <td><score></score></td>
+      <td><score id="threes" [score]="scores.threes"></score></td>
       <th>Full House</th>
       <th>Score 25</th>
-      <td><score></score></td>
+      <td><score id="fullHouse" [score]="scores.fullHouse"></score></td>
     </tr>
     <tr>
       <th>Fours</th>
       <th>Count and add only fours</th>
-      <td><score></score></td>
+      <td><score id="fours" [score]="scores.fours"></score></td>
       <th>Sm Straight Sequence of 4</th>
       <th>Score 30</th>
-      <td><score></score></td>
+      <td><score id="smallStr" [score]="scores.smallStr"></score></td>
     </tr>
     <tr>
       <th>Fives</th>
       <th>Count and add only fives</th>
-      <td><score></score></td>
+      <td><score id="fives" [score]="scores.fives"></score></td>
       <th>Lg Straight Sequence of 5</th>
       <th>Score 40</th>
-      <td><score></score></td>
+      <td><score id="largeStr" [score]="scores.largeStr"></score></td>
     </tr>
     <tr>
       <th>Sixes</th>
       <th>Count and add only sixes</th>
-      <td><score></score></td>
+      <td><score id="sixes" [score]="scores.sixes"></score></td>
       <th>Yahtzee 5 of a kind</th>
       <th>Score 50</th>
-      <td><score></score></td>
+      <td><score id="yahtzee" [score]="scores.yahtzee"></score></td>
     </tr>
     <tr>
       <th colspan="2">Total Score</th>
-      <td><score></score></td>
+      <td><score id="totalUpper" [score]="scores.totalUpper"></score></td>
       <th>Chance</th>
       <th>Score total of all 5 dice</th>
-      <td><score></score></td>
+      <td><score id="chance" [score]="scores.chance"></score></td>
     </tr>
     <tr>
       <th>Bonus <br />(if total score over 63)</th>
@@ -72,20 +72,36 @@
       <td><score></score></td>
       <th>Yahtzee</th>
       <th>x for each bonus</th>
-      <td class="bonus"><score></score></td>
+      <td>
+        <score
+          id="yahtzeeBonusCounter"
+          [score]="scores.yahtzeeBonusCounter"
+        ></score>
+      </td>
     </tr>
     <tr>
       <th colspan="2">Total Score of upper section</th>
-      <td><score></score></td>
+      <td>
+        <score id="grandTotalUpper" [score]="scores.grandTotalUpper"></score>
+      </td>
       <th>Bonus</th>
       <th>100 per x</th>
-      <td><score></score></td>
+      <td>
+        <score
+          id="yahtzeeBonusTotal"
+          [score]="scores.yahtzeeBonusTotal"
+        ></score>
+      </td>
     </tr>
     <tr class="grand">
       <th class="grand-label" colspan="2">Grand total</th>
-      <td class="grand-value"><score></score></td>
+      <td class="grand-value">
+        <score id="grandTotal" [score]="scores.grandTotal"></score>
+      </td>
       <th colspan="2">Total of lower section</th>
-      <td><score></score></td>
+      <td>
+        <score id="grandTotalLower" [score]="scores.grandTotalLower"></score>
+      </td>
     </tr>
   </tbody>
 </table>

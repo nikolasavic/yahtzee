@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { GameStateService } from '../services/game-state.service';
+import { ScoreSheet } from './score-sheet';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -8,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnDestroy {
-  scores: any;
+  scores: ScoreSheet = new ScoreSheet({});
   scoreSubscription: Subscription;
 
   constructor(private state: GameStateService) {

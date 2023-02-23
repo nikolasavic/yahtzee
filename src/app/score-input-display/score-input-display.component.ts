@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ScoreInputDisplayComponent {
   @Input()
-  score: number | null = null;
+  score: number | undefined = undefined;
 
   @Input()
   scoring: boolean = false;
