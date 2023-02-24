@@ -7,8 +7,11 @@ import { Component, Input } from '@angular/core';
 })
 export class ScoreInputDisplayComponent {
   @Input()
+  id: string | undefined = undefined;
+
+  @Input()
   score: number | undefined = undefined;
 
   @Input()
-  scoring: boolean = false;
+  isScoringPhase: boolean = false;
 }

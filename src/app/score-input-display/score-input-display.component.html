@@ -1,4 +1,4 @@
-<ng-container *ngIf="scoring">
+<div *ngIf="isScoringPhase" [ngClass]="id">
   <button class="button">score</button>
-</ng-container>
-<ng-container *ngIf="!scoring">{{ score }}</ng-container>
+</div>
+<div *ngIf="!isScoringPhase" [ngClass]="id">{{ score }}</div>

@@ -29,11 +29,19 @@ describe('ScoreInputDisplayComponent', () => {
     it('does not show anything if unscored', () => {
       expect(nativeEl.innerText).toBe('');
     });
+
+    it('uses input id', () => {
+      component.id = 'specialId';
+      component.score = 32;
+      fixture.detectChanges();
+
+      expect(nativeEl.querySelector('div').classList).toContain('specialId');
+    });
   });
 
-  describe('score', () => {
+  describe('scorePhase', () => {
     it('shows score button', () => {
-      component.scoring = true;
+      component.isScoringPhase = true;
       fixture.detectChanges();
 
       expect(nativeEl.innerText).toContain('score');
