@@ -94,91 +94,91 @@ describe('AppComponent', () => {
 
     describe('renders', () => {
       it('aces', () => {
-        expect(nativeEl.querySelector('#aces').textContent).toBe('1');
+        expect(nativeEl.querySelector('.aces').textContent).toBe('1');
       });
 
       it('twos', () => {
-        expect(nativeEl.querySelector('#twos').textContent).toBe('2');
+        expect(nativeEl.querySelector('.twos').textContent).toBe('2');
       });
 
       it('threes', () => {
-        expect(nativeEl.querySelector('#threes').textContent).toBe('3');
+        expect(nativeEl.querySelector('.threes').textContent).toBe('3');
       });
 
       it('fours', () => {
-        expect(nativeEl.querySelector('#fours').textContent).toBe('4');
+        expect(nativeEl.querySelector('.fours').textContent).toBe('4');
       });
 
       it('fives', () => {
-        expect(nativeEl.querySelector('#fives').textContent).toBe('5');
+        expect(nativeEl.querySelector('.fives').textContent).toBe('5');
       });
 
       it('sixes', () => {
-        expect(nativeEl.querySelector('#sixes').textContent).toBe('6');
+        expect(nativeEl.querySelector('.sixes').textContent).toBe('6');
       });
 
       it('totalUpper', () => {
-        expect(nativeEl.querySelector('#totalUpper').textContent).toBe('7');
+        expect(nativeEl.querySelector('.totalUpper').textContent).toBe('7');
       });
 
       it('bonusUpper', () => {
-        expect(nativeEl.querySelector('#bonusUpper').textContent).toBe('8');
+        expect(nativeEl.querySelector('.bonusUpper').textContent).toBe('8');
       });
 
       it('grandTotalUpper', () => {
-        expect(nativeEl.querySelector('#grandTotalUpper').textContent).toBe(
+        expect(nativeEl.querySelector('.grandTotalUpper').textContent).toBe(
           '9'
         );
       });
 
       it('threeKind', () => {
-        expect(nativeEl.querySelector('#threeKind').textContent).toBe('10');
+        expect(nativeEl.querySelector('.threeKind').textContent).toBe('10');
       });
 
       it('fourKind', () => {
-        expect(nativeEl.querySelector('#fourKind').textContent).toBe('11');
+        expect(nativeEl.querySelector('.fourKind').textContent).toBe('11');
       });
 
       it('fullHouse', () => {
-        expect(nativeEl.querySelector('#fullHouse').textContent).toBe('12');
+        expect(nativeEl.querySelector('.fullHouse').textContent).toBe('12');
       });
 
       it('smallStr', () => {
-        expect(nativeEl.querySelector('#smallStr').textContent).toBe('13');
+        expect(nativeEl.querySelector('.smallStr').textContent).toBe('13');
       });
 
       it('largeStr', () => {
-        expect(nativeEl.querySelector('#largeStr').textContent).toBe('14');
+        expect(nativeEl.querySelector('.largeStr').textContent).toBe('14');
       });
 
       it('yahtzee', () => {
-        expect(nativeEl.querySelector('#yahtzee').textContent).toBe('15');
+        expect(nativeEl.querySelector('.yahtzee').textContent).toBe('15');
       });
 
       it('chance', () => {
-        expect(nativeEl.querySelector('#chance').textContent).toBe('16');
+        expect(nativeEl.querySelector('.chance').textContent).toBe('16');
       });
 
       it('yahtzeeBonusCounter', () => {
-        expect(nativeEl.querySelector('#yahtzeeBonusCounter').textContent).toBe(
+        expect(nativeEl.querySelector('.yahtzeeBonusCounter').textContent).toBe(
           '17'
         );
       });
 
       it('yahtzeeBonusTotal', () => {
-        expect(nativeEl.querySelector('#yahtzeeBonusTotal').textContent).toBe(
+        expect(nativeEl.querySelector('.yahtzeeBonusTotal').textContent).toBe(
           '18'
         );
       });
 
       it('grandTotalLower', () => {
-        expect(nativeEl.querySelector('#grandTotalLower').textContent).toBe(
+        expect(nativeEl.querySelector('.grandTotalLower').textContent).toBe(
           '19'
         );
       });
 
       it('grandTotal', () => {
-        expect(nativeEl.querySelector('#grandTotal').textContent).toBe('20');
+        expect(nativeEl.querySelector('.grandTotal').textContent).toBe('20');
       });
     });
   });
