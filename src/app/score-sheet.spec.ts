@@ -16,19 +16,19 @@ describe('ScoreSheet', () => {
         fives: 5,
         sixes: 6,
         totalUpper: 7,
-        bonusUpper: true,
-        grandTotalUpper: 8,
-        threeKind: 9,
-        fourKind: 10,
-        fullHouse: 11,
-        smallStr: 12,
-        largeStr: 13,
-        yahtzee: 14,
-        chance: 15,
-        yahtzeeBonusCounter: 16,
-        yahtzeeBonusTotal: 17,
-        grandTotalLower: 18,
-        grandTotal: 19,
+        bonusUpper: 8,
+        grandTotalUpper: 9,
+        threeKind: 10,
+        fourKind: 11,
+        fullHouse: 12,
+        smallStr: 13,
+        largeStr: 14,
+        yahtzee: 15,
+        chance: 16,
+        yahtzeeBonusCounter: 17,
+        yahtzeeBonusTotal: 18,
+        grandTotalLower: 19,
+        grandTotal: 20,
       });
 
       expect(scoreSheet.aces).toBe(1);
@@ -38,19 +38,19 @@ describe('ScoreSheet', () => {
       expect(scoreSheet.fives).toBe(5);
       expect(scoreSheet.sixes).toBe(6);
       expect(scoreSheet.totalUpper).toBe(7);
-      expect(scoreSheet.bonusUpper).toBe(true);
-      expect(scoreSheet.grandTotalUpper).toBe(8);
-      expect(scoreSheet.threeKind).toBe(9);
-      expect(scoreSheet.fourKind).toBe(10);
-      expect(scoreSheet.fullHouse).toBe(11);
-      expect(scoreSheet.smallStr).toBe(12);
-      expect(scoreSheet.largeStr).toBe(13);
-      expect(scoreSheet.yahtzee).toBe(14);
-      expect(scoreSheet.chance).toBe(15);
-      expect(scoreSheet.yahtzeeBonusCounter).toBe(16);
-      expect(scoreSheet.yahtzeeBonusTotal).toBe(17);
-      expect(scoreSheet.grandTotalLower).toBe(18);
-      expect(scoreSheet.grandTotal).toBe(19);
+      expect(scoreSheet.bonusUpper).toBe(8);
+      expect(scoreSheet.grandTotalUpper).toBe(9);
+      expect(scoreSheet.threeKind).toBe(10);
+      expect(scoreSheet.fourKind).toBe(11);
+      expect(scoreSheet.fullHouse).toBe(12);
+      expect(scoreSheet.smallStr).toBe(13);
+      expect(scoreSheet.largeStr).toBe(14);
+      expect(scoreSheet.yahtzee).toBe(15);
+      expect(scoreSheet.chance).toBe(16);
+      expect(scoreSheet.yahtzeeBonusCounter).toBe(17);
+      expect(scoreSheet.yahtzeeBonusTotal).toBe(18);
+      expect(scoreSheet.grandTotalLower).toBe(19);
+      expect(scoreSheet.grandTotal).toBe(20);
     });
 
     it('create a copy with different value', () => {

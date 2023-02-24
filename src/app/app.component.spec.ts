@@ -24,19 +24,19 @@ describe('AppComponent', () => {
         fives: 5,
         sixes: 6,
         totalUpper: 7,
-        bonusUpper: true,
-        grandTotalUpper: 8,
-        threeKind: 9,
-        fourKind: 10,
-        fullHouse: 11,
-        smallStr: 12,
-        largeStr: 13,
-        yahtzee: 14,
-        chance: 15,
-        yahtzeeBonusCounter: 16,
-        yahtzeeBonusTotal: 17,
-        grandTotalLower: 18,
-        grandTotal: 19,
+        bonusUpper: 8,
+        grandTotalUpper: 9,
+        threeKind: 10,
+        fourKind: 11,
+        fullHouse: 12,
+        smallStr: 13,
+        largeStr: 14,
+        yahtzee: 15,
+        chance: 16,
+        yahtzeeBonusCounter: 17,
+        yahtzeeBonusTotal: 18,
+        grandTotalLower: 19,
+        grandTotal: 20,
       })
     ),
   };
@@ -121,60 +121,64 @@ describe('AppComponent', () => {
         expect(nativeEl.querySelector('#totalUpper').textContent).toBe('7');
       });
 
+      it('bonusUpper', () => {
+        expect(nativeEl.querySelector('#bonusUpper').textContent).toBe('8');
+      });
+
       it('grandTotalUpper', () => {
         expect(nativeEl.querySelector('#grandTotalUpper').textContent).toBe(
-          '8'
+          '9'
         );
       });
 
       it('threeKind', () => {
-        expect(nativeEl.querySelector('#threeKind').textContent).toBe('9');
+        expect(nativeEl.querySelector('#threeKind').textContent).toBe('10');
       });
 
       it('fourKind', () => {
-        expect(nativeEl.querySelector('#fourKind').textContent).toBe('10');
+        expect(nativeEl.querySelector('#fourKind').textContent).toBe('11');
       });
 
       it('fullHouse', () => {
-        expect(nativeEl.querySelector('#fullHouse').textContent).toBe('11');
+        expect(nativeEl.querySelector('#fullHouse').textContent).toBe('12');
       });
 
       it('smallStr', () => {
-        expect(nativeEl.querySelector('#smallStr').textContent).toBe('12');
+        expect(nativeEl.querySelector('#smallStr').textContent).toBe('13');
       });
 
       it('largeStr', () => {
-        expect(nativeEl.querySelector('#largeStr').textContent).toBe('13');
+        expect(nativeEl.querySelector('#largeStr').textContent).toBe('14');
       });
 
       it('yahtzee', () => {
-        expect(nativeEl.querySelector('#yahtzee').textContent).toBe('14');
+        expect(nativeEl.querySelector('#yahtzee').textContent).toBe('15');
       });
 
       it('chance', () => {
-        expect(nativeEl.querySelector('#chance').textContent).toBe('15');
+        expect(nativeEl.querySelector('#chance').textContent).toBe('16');
       });
 
       it('yahtzeeBonusCounter', () => {
         expect(nativeEl.querySelector('#yahtzeeBonusCounter').textContent).toBe(
-          '16'
+          '17'
         );
       });
 
       it('yahtzeeBonusTotal', () => {
         expect(nativeEl.querySelector('#yahtzeeBonusTotal').textContent).toBe(
-          '17'
+          '18'
         );
       });
 
       it('grandTotalLower', () => {
         expect(nativeEl.querySelector('#grandTotalLower').textContent).toBe(
-          '18'
+          '19'
         );
       });
 
       it('grandTotal', () => {
-        expect(nativeEl.querySelector('#grandTotal').textContent).toBe('19');
+        expect(nativeEl.querySelector('#grandTotal').textContent).toBe('20');
       });
     });
   });

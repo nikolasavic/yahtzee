@@ -28,7 +28,7 @@ export class ScoreSheet {
     fives?: number;
     sixes?: number;
     totalUpper?: number;
-    bonusUpper?: boolean;
+    bonusUpper?: number;
     grandTotalUpper?: number;
     threeKind?: number;
     fourKind?: number;
@@ -72,7 +72,7 @@ export class ScoreSheet {
   readonly sixes: number | undefined;
 
   readonly totalUpper: number | undefined;
-  readonly bonusUpper: boolean | undefined;
+  readonly bonusUpper: number | undefined;
   readonly grandTotalUpper: number | undefined;
 
   readonly threeKind: number | undefined;
