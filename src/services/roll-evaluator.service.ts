@@ -30,11 +30,21 @@ export class RollEvaluatorService {
     return this.scoreAsUpper(roll, 6);
   }
 
+  scoreAsThreeKind(roll: number[]) {
+    if (this.distict(roll).length < 4)
+      return roll.reduce((total, current) => total + current);
+    else return 0;
+  }
+
   private scoreAsUpper(roll: number[], category: number) {
     return this.filterRoll(roll, category).length * category;
   }
 
   private filterRoll(roll: number[], value: number) {
     return roll.filter((x) => x == value);
+  }
+
+  private distict(roll: number[]) {
+    return [...new Set(roll)];
   }
 }
