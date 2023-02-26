@@ -54,6 +54,12 @@ export class RollEvaluatorService {
     else return 0;
   }
 
+  scoreAsLargeStr(roll: number[]) {
+    if (this.contains(roll, [1, 2, 3, 4, 5])) return 40;
+    else if (this.contains(roll, [2, 3, 4, 5, 6])) return 40;
+    else return 0;
+  }
+
   private scoreAsUpper(roll: number[], category: number) {
     return this.filter(roll, category).length * category;
   }
