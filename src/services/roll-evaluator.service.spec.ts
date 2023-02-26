@@ -164,4 +164,12 @@ describe('RollEvaluatorService', () => {
       expect(service.scoreAsLargeStr([1, 5, 5, 4, 1])).toBe(0);
     });
   });
+
+  it('Chance', () => {
+    expect(service.scoreAsChance([2, 3, 5, 1, 2])).toBe(13);
+    expect(service.scoreAsChance([5, 2, 2, 3, 5])).toBe(17);
+    expect(service.scoreAsChance([1, 5, 5, 4, 1])).toBe(16);
+    expect(service.scoreAsChance([1, 2, 3, 4, 5])).toBe(15);
+    expect(service.scoreAsChance([2, 3, 4, 5, 6])).toBe(20);
+  });
 });

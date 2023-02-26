@@ -65,6 +65,10 @@ export class RollEvaluatorService {
     else return 0;
   }
 
+  scoreAsChance(roll: number[]) {
+    return roll.reduce((total, current) => total + current);
+  }
+
   private scoreAsUpper(roll: number[], category: number) {
     return this.filter(roll, category).length * category;
   }
