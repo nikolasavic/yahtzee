@@ -83,4 +83,24 @@ describe('RollEvaluatorService', () => {
       expect(service.scoreAsFourKind([2, 2, 2, 2, 2])).toBe(10);
     });
   });
+
+  describe('Full House', () => {
+    it('2 distict values', () => {
+      expect(service.scoreAsFullHouse([2, 2, 3, 3, 3])).toBe(25);
+      expect(service.scoreAsFullHouse([5, 2, 5, 5, 2])).toBe(25);
+      expect(service.scoreAsFullHouse([6, 4, 4, 4, 6])).toBe(25);
+    });
+
+    it('1 distict values', () => {
+      expect(service.scoreAsFullHouse([2, 2, 2, 2, 2])).toBe(25);
+      expect(service.scoreAsFullHouse([5, 5, 5, 5, 5])).toBe(25);
+      expect(service.scoreAsFullHouse([3, 3, 3, 3, 3])).toBe(25);
+    });
+
+    it('Not a full house', () => {
+      expect(service.scoreAsFullHouse([2, 3, 5, 1, 2])).toBe(0);
+      expect(service.scoreAsFullHouse([5, 2, 2, 3, 5])).toBe(0);
+      expect(service.scoreAsFullHouse([1, 5, 5, 4, 1])).toBe(0);
+    });
+  });
 });

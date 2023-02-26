@@ -42,6 +42,11 @@ export class RollEvaluatorService {
     else return 0;
   }
 
+  scoreAsFullHouse(roll: number[]) {
+    if (this.distict(roll).length < 3) return 25;
+    else return 0;
+  }
+
   private scoreAsUpper(roll: number[], category: number) {
     return this.filter(roll, category).length * category;
   }
