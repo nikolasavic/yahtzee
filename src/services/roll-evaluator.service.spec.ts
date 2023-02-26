@@ -68,6 +68,12 @@ describe('RollEvaluatorService', () => {
         expect(service.scoreAsThreeKind([4, 4, 4, 4, 4])).toBe(20);
       });
     });
+
+    it('Not a three of a kind', () => {
+      expect(service.scoreAsFullHouse([2, 3, 5, 3, 2])).toBe(0);
+      expect(service.scoreAsFullHouse([5, 2, 2, 1, 5])).toBe(0);
+      expect(service.scoreAsFullHouse([3, 5, 2, 6, 2])).toBe(0);
+    });
   });
 
   describe('Four of a kind', () => {
@@ -81,6 +87,12 @@ describe('RollEvaluatorService', () => {
       expect(service.scoreAsFourKind([4, 4, 4, 4, 4])).toBe(20);
       expect(service.scoreAsFourKind([1, 1, 1, 1, 1])).toBe(5);
       expect(service.scoreAsFourKind([2, 2, 2, 2, 2])).toBe(10);
+    });
+
+    it('Not a four of a kind', () => {
+      expect(service.scoreAsFullHouse([1, 3, 5, 2, 2])).toBe(0);
+      expect(service.scoreAsFullHouse([4, 2, 2, 3, 5])).toBe(0);
+      expect(service.scoreAsFullHouse([1, 5, 2, 6, 1])).toBe(0);
     });
   });
 
