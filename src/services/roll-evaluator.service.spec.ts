@@ -69,4 +69,18 @@ describe('RollEvaluatorService', () => {
       });
     });
   });
+
+  describe('Four of a kind', () => {
+    it('2 distict values', () => {
+      expect(service.scoreAsFourKind([3, 2, 3, 3, 3])).toBe(14);
+      expect(service.scoreAsFourKind([5, 2, 5, 5, 5])).toBe(22);
+      expect(service.scoreAsFourKind([6, 4, 4, 4, 4])).toBe(22);
+    });
+
+    it('1 distict values', () => {
+      expect(service.scoreAsFourKind([4, 4, 4, 4, 4])).toBe(20);
+      expect(service.scoreAsFourKind([1, 1, 1, 1, 1])).toBe(5);
+      expect(service.scoreAsFourKind([2, 2, 2, 2, 2])).toBe(10);
+    });
+  });
 });

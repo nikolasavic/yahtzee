@@ -36,6 +36,12 @@ export class RollEvaluatorService {
     else return 0;
   }
 
+  scoreAsFourKind(roll: number[]) {
+    if (this.distict(roll).length < 3)
+      return roll.reduce((total, current) => total + current);
+    else return 0;
+  }
+
   private scoreAsUpper(roll: number[], category: number) {
     return this.filter(roll, category).length * category;
   }
