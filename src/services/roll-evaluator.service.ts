@@ -37,10 +37,10 @@ export class RollEvaluatorService {
   }
 
   private scoreAsUpper(roll: number[], category: number) {
-    return this.filterRoll(roll, category).length * category;
+    return this.filter(roll, category).length * category;
   }
 
-  private filterRoll(roll: number[], value: number) {
+  private filter(roll: number[], value: number) {
     return roll.filter((x) => x == value);
   }
 
