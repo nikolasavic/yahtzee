@@ -147,4 +147,21 @@ describe('RollEvaluatorService', () => {
       expect(service.scoreAsLargeStr([1, 5, 5, 4, 1])).toBe(0);
     });
   });
+
+  describe('Yahtzee', () => {
+    it('Is yahtzee', () => {
+      expect(service.scoreAsYahtzee([1, 1, 1, 1, 1])).toBe(50);
+      expect(service.scoreAsYahtzee([2, 2, 2, 2, 2])).toBe(50);
+      expect(service.scoreAsYahtzee([3, 3, 3, 3, 3])).toBe(50);
+      expect(service.scoreAsYahtzee([4, 4, 4, 4, 4])).toBe(50);
+      expect(service.scoreAsYahtzee([5, 5, 5, 5, 5])).toBe(50);
+      expect(service.scoreAsYahtzee([6, 6, 6, 6, 6])).toBe(50);
+    });
+
+    it('Not a yahtzee', () => {
+      expect(service.scoreAsLargeStr([2, 3, 5, 1, 2])).toBe(0);
+      expect(service.scoreAsLargeStr([5, 2, 2, 3, 5])).toBe(0);
+      expect(service.scoreAsLargeStr([1, 5, 5, 4, 1])).toBe(0);
+    });
+  });
 });
