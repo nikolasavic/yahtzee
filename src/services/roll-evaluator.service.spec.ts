@@ -115,4 +115,23 @@ describe('RollEvaluatorService', () => {
       expect(service.scoreAsFullHouse([1, 5, 5, 4, 1])).toBe(0);
     });
   });
+
+  describe('Small straight', () => {
+    it('4 consecutive', () => {
+      expect(service.scoreAsSmallStr([1, 2, 3, 4, 2])).toBe(30);
+      expect(service.scoreAsSmallStr([2, 2, 3, 4, 5])).toBe(30);
+      expect(service.scoreAsSmallStr([3, 4, 5, 6, 1])).toBe(30);
+    });
+
+    it('5 consecutive', () => {
+      expect(service.scoreAsSmallStr([1, 2, 3, 4, 5])).toBe(30);
+      expect(service.scoreAsSmallStr([2, 3, 4, 5, 6])).toBe(30);
+    });
+
+    it('Not a small straight', () => {
+      expect(service.scoreAsFullHouse([2, 3, 5, 1, 2])).toBe(0);
+      expect(service.scoreAsFullHouse([5, 2, 2, 3, 5])).toBe(0);
+      expect(service.scoreAsFullHouse([1, 5, 5, 4, 1])).toBe(0);
+    });
+  });
 });
