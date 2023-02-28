@@ -1,5 +1,5 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { YahtzeeComponent } from './yahtzee.component';
 import { DieComponent } from './die/die.component';
 import { DiceTrayComponent } from './dice-tray/dice-tray.component';
 import { RollCountComponent } from './roll-count/roll-count.component';
@@ -11,8 +11,8 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 import { By } from '@angular/platform-browser';
 
 describe('AppComponent', () => {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
+  let component: YahtzeeComponent;
+  let fixture: ComponentFixture<YahtzeeComponent>;
   let nativeEl: any;
   let gameStateServiceStub = {
     scoreSheet$: new BehaviorSubject<ScoreSheet>(
@@ -44,7 +44,7 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        AppComponent,
+        YahtzeeComponent,
         DieComponent,
         DiceTrayComponent,
         RollCountComponent,
@@ -55,7 +55,7 @@ describe('AppComponent', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(YahtzeeComponent);
     component = fixture.componentInstance;
     nativeEl = fixture.nativeElement;
     fixture.detectChanges();

@@ -4,11 +4,11 @@ import { ScoreSheet } from './score-sheet';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'yahtzee',
+  templateUrl: './yahtzee.component.html',
+  styleUrls: ['./yahtzee.component.css'],
 })
-export class AppComponent implements OnDestroy {
+export class YahtzeeComponent implements OnDestroy {
   scores: ScoreSheet = new ScoreSheet({});
   scoreSubscription: Subscription;
 

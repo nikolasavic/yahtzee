@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import { YahtzeeComponent } from './yahtzee.component';
 import { DieComponent } from './die/die.component';
 import { DiceTrayComponent } from './dice-tray/dice-tray.component';
 import { RollCountComponent } from './roll-count/roll-count.component';
@@ -9,7 +9,7 @@ import { ScoreInputDisplayComponent } from './score-input-display/score-input-di
 
 @NgModule({
   declarations: [
-    AppComponent,
+    YahtzeeComponent,
     DieComponent,
     DiceTrayComponent,
     RollCountComponent,
@@ -17,6 +17,6 @@ import { ScoreInputDisplayComponent } from './score-input-display/score-input-di
   ],
   imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [YahtzeeComponent],
 })
 export class AppModule {}
