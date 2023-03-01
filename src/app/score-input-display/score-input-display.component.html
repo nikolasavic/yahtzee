@@ -1,4 +1,4 @@
-<div *ngIf="isScoringPhase" [ngClass]="id">
+<div *ngIf="isScoringPhase" (click)="recordScore()" [ngClass]="id">
   <button class="button">score</button>
 </div>
 <div *ngIf="!isScoringPhase" [ngClass]="id">{{ score }}</div>

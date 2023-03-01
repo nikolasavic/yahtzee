@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ScoringService } from '../../services/scoring.service';
 
 @Component({
   selector: 'score',
@@ -6,6 +7,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./score-input-display.component.css'],
 })
 export class ScoreInputDisplayComponent {
+  constructor(private scoring: ScoringService) {}
+
   @Input()
   id: string | undefined = undefined;
 
@@ -14,4 +17,8 @@ export class ScoreInputDisplayComponent {
 
   @Input()
   isScoringPhase: boolean = false;
+
+  recordScore() {
+    this.scoring.recordScore(this.id);
+  }
 }

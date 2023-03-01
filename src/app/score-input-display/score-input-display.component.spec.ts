@@ -1,15 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ScoreInputDisplayComponent } from './score-input-display.component';
+import { ScoringService } from '../../services/scoring.service';
 
 describe('ScoreInputDisplayComponent', () => {
   let component: ScoreInputDisplayComponent;
   let fixture: ComponentFixture<ScoreInputDisplayComponent>;
   let nativeEl: any;
+  let mockScoringService: any;
 
   beforeEach(async () => {
+    mockScoringService = jasmine.createSpyObj('ScoringService', [
+      'recordScore',
+    ]);
+
     await TestBed.configureTestingModule({
       declarations: [ScoreInputDisplayComponent],
+      providers: [{ provide: ScoringService, useValue: mockScoringService }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ScoreInputDisplayComponent);
@@ -45,6 +52,19 @@ describe('ScoreInputDisplayComponent', () => {
       fixture.detectChanges();
 
       expect(nativeEl.innerText).toContain('score');
+    });
+
+    it('records score', () => {
+      const category = 'aces';
+      component.isScoringPhase = true;
+      component.id = category;
+      fixture.detectChanges();
+
+      let scoreButton = nativeEl.querySelector('button');
+
+      scoreButton.click();
+
+      expect(mockScoringService.recordScore).toHaveBeenCalledOnceWith(category);
     });
   });
 });
