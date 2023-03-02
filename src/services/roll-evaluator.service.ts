@@ -1,71 +1,120 @@
 import { Injectable } from '@angular/core';
 
+import { Category } from '../app/category';
+
 @Injectable({
   providedIn: 'root',
 })
 export class RollEvaluatorService {
   constructor() {}
 
-  scoreAsAces(roll: number[]) {
+  scoreAs(category: Category, roll: number[]) {
+    switch (category) {
+      case 'none': // error
+        return -1;
+        break;
+      case 'aces':
+        return this.scoreAsAces(roll);
+        break;
+      case 'twos':
+        return this.scoreAsTwos(roll);
+        break;
+      case 'threes':
+        return this.scoreAsThrees(roll);
+        break;
+      case 'fours':
+        return this.scoreAsFours(roll);
+        break;
+      case 'fives':
+        return this.scoreAsFives(roll);
+        break;
+      case 'sixes':
+        return this.scoreAsSixes(roll);
+        break;
+      case 'threeKind':
+        return this.scoreAsThreeKind(roll);
+        break;
+      case 'fourKind':
+        return this.scoreAsFourKind(roll);
+        break;
+      case 'fullHouse':
+        return this.scoreAsFullHouse(roll);
+        break;
+      case 'smallStr':
+        return this.scoreAsSmallStr(roll);
+        break;
+      case 'largeStr':
+        return this.scoreAsLargeStr(roll);
+        break;
+      case 'yahtzee':
+        return this.scoreAsYahtzee(roll);
+        break;
+      case 'chance':
+        return this.scoreAsChance(roll);
+        break;
+    }
+  }
+
+  private scoreAsAces(roll: number[]) {
     return this.scoreAsUpper(roll, 1);
   }
 
-  scoreAsTwos(roll: number[]) {
+  private scoreAsTwos(roll: number[]) {
     return this.scoreAsUpper(roll, 2);
   }
 
-  scoreAsThrees(roll: number[]) {
+  private scoreAsThrees(roll: number[]) {
     return this.scoreAsUpper(roll, 3);
   }
 
-  scoreAsFours(roll: number[]) {
+  private scoreAsFours(roll: number[]) {
     return this.scoreAsUpper(roll, 4);
   }
 
-  scoreAsFives(roll: number[]) {
+  private scoreAsFives(roll: number[]) {
     return this.scoreAsUpper(roll, 5);
   }
 
-  scoreAsSixes(roll: number[]) {
+  private scoreAsSixes(roll: number[]) {
     return this.scoreAsUpper(roll, 6);
   }
 
-  scoreAsThreeKind(roll: number[]) {
+  private scoreAsThreeKind(roll: number[]) {
     if (this.distict(roll).length < 4)
       return roll.reduce((total, current) => total + current);
     else return 0;
   }
 
-  scoreAsFourKind(roll: number[]) {
+  private scoreAsFourKind(roll: number[]) {
     if (this.distict(roll).length < 3)
       return roll.reduce((total, current) => total + current);
     else return 0;
   }
 
-  scoreAsFullHouse(roll: number[]) {
+  private scoreAsFullHouse(roll: number[]) {
     if (this.distict(roll).length < 3) return 25;
     else return 0;
   }
 
-  scoreAsSmallStr(roll: number[]) {
+  private scoreAsSmallStr(roll: number[]) {
     if (this.contains(roll, [1, 2, 3, 4])) return 30;
     else if (this.contains(roll, [2, 3, 4, 5])) return 30;
     else if (this.contains(roll, [3, 4, 5, 6])) return 30;
     else return 0;
   }
 
-  scoreAsLargeStr(roll: number[]) {
+  private scoreAsLargeStr(roll: number[]) {
     if (this.contains(roll, [1, 2, 3, 4, 5])) return 40;
     else if (this.contains(roll, [2, 3, 4, 5, 6])) return 40;
     else return 0;
   }
 
-  scoreAsYahtzee(roll: number[]) {
+  private scoreAsYahtzee(roll: number[]) {
     if (this.distict(roll).length == 1) return 50;
     else return 0;
   }
 
-  scoreAsChance(roll: number[]) {
+  private scoreAsChance(roll: number[]) {
     return roll.reduce((total, current) => total + current);
   }
 
