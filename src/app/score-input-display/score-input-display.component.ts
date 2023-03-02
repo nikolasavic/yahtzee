@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ScoringService } from '../../services/scoring.service';
+import { Category } from '../category';
 
 @Component({
   selector: 'score',
@@ -10,7 +11,7 @@ export class ScoreInputDisplayComponent {
   constructor(private scoring: ScoringService) {}
 
   @Input()
-  id: string | undefined = undefined;
+  id: Category = 'none';
 
   @Input()
   score: number | undefined = undefined;

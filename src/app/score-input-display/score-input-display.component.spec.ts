@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ScoreInputDisplayComponent } from './score-input-display.component';
 import { ScoringService } from '../../services/scoring.service';
+import { Category } from '../category';
 
 describe('ScoreInputDisplayComponent', () => {
   let component: ScoreInputDisplayComponent;
@@ -38,11 +39,11 @@ describe('ScoreInputDisplayComponent', () => {
     });
 
     it('uses input id', () => {
-      component.id = 'specialId';
+      component.id = 'chance';
       component.score = 32;
       fixture.detectChanges();
 
-      expect(nativeEl.querySelector('div').classList).toContain('specialId');
+      expect(nativeEl.querySelector('div').classList).toContain('chance');
     });
   });
 
