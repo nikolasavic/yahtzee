@@ -10,7 +10,9 @@ describe('GameControllerService', () => {
     service = TestBed.inject(GameControllerService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  describe('defaults', () => {
+    it('start game with round 1', () => {
+      expect(service.round).toBe(1);
+    });
   });
 });

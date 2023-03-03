@@ -8,5 +8,7 @@ import { Category } from '../app/category';
 export class GameControllerService {
   constructor() {}
 
+  round: number = 1;
+
   recordScore(category: Category, score: number) {}
 }
