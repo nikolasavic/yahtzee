@@ -14,5 +14,9 @@ describe('GameControllerService', () => {
     it('start game with round 1', () => {
       expect(service.round).toBe(1);
     });
+
+    it('start game with dice roll', () => {
+      expect(service.isScoringPhase).toBe(false);
+    });
   });
 });
