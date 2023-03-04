@@ -4,13 +4,14 @@ import { DieComponent } from './die/die.component';
 import { DiceTrayComponent } from './dice-tray/dice-tray.component';
 import { RollCountComponent } from './roll-count/roll-count.component';
 import { ScoreInputDisplayComponent } from './score-input-display/score-input-display.component';
+import { AggregateScoreComponent } from './aggregate-score/aggregate-score.component';
 import { GameStateService } from '../services/game-state.service';
 import { ScoreSheet } from './score-sheet';
 
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { By } from '@angular/platform-browser';
 
-describe('AppComponent', () => {
+describe('YahtzeeComponent', () => {
   let component: YahtzeeComponent;
   let fixture: ComponentFixture<YahtzeeComponent>;
   let nativeEl: any;
@@ -49,6 +50,7 @@ describe('AppComponent', () => {
         DiceTrayComponent,
         RollCountComponent,
         ScoreInputDisplayComponent,
+        AggregateScoreComponent,
       ],
       providers: [
         { provide: GameStateService, useValue: gameStateServiceStub },

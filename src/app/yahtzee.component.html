@@ -69,44 +69,52 @@
     <tr>
       <th>Bonus <br />(if total score over 63)</th>
       <th>Score 35</th>
-      <td><score [id]="'bonusUpper'" [score]="scores.bonusUpper"></score></td>
+      <td>
+        <aggregate-score
+          [id]="'bonusUpper'"
+          [value]="scores.bonusUpper"
+        ></aggregate-score>
+      </td>
       <th>Yahtzee</th>
       <th>x for each bonus</th>
       <td>
-        <score
+        <aggregate-score
           [id]="'yahtzeeBonusCounter'"
-          [score]="scores.yahtzeeBonusCounter"
-        ></score>
+          [value]="scores.yahtzeeBonusCounter"
+        ></aggregate-score>
       </td>
     </tr>
     <tr>
       <th colspan="2">Total Score of upper section</th>
       <td>
-        <score
+        <aggregate-score
           [id]="'grandTotalUpper'"
-          [score]="scores.grandTotalUpper"
-        ></score>
+          [value]="scores.grandTotalUpper"
+        ></aggregate-score>
       </td>
       <th>Bonus</th>
       <th>100 per x</th>
       <td>
-        <score
+        <aggregate-score
           [id]="'yahtzeeBonusTotal'"
-          [score]="scores.yahtzeeBonusTotal"
-        ></score>
+          [value]="scores.yahtzeeBonusTotal"
+        ></aggregate-score>
       </td>
     </tr>
     <tr class="grand">
       <th class="grand-label" colspan="2">Grand total</th>
       <td class="grand-value">
-        <score [id]="'grandTotal'" [score]="scores.grandTotal"></score>
+        <aggregate-score
+          [id]="'grandTotal'"
+          [value]="scores.grandTotal"
+        ></aggregate-score>
       </td>
       <th colspan="2">Total of lower section</th>
       <td>
-        <score
+        <aggregate-score
           [id]="'grandTotalLower'"
-          [score]="scores.grandTotalLower"
-        ></score>
+          [value]="scores.grandTotalLower"
+        ></aggregate-score>
       </td>
     </tr>
   </tbody>
