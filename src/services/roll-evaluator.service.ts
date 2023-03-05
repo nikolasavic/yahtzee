@@ -10,9 +10,6 @@ export class RollEvaluatorService {
 
   scoreAs(category: Category, roll: number[]) {
     switch (category) {
-      case 'none': // error
-        return -1;
-        break;
       case 'aces':
         return this.scoreAsAces(roll);
         break;

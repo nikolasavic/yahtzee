@@ -12,7 +12,7 @@ export class ScoreInputDisplayComponent {
   constructor(private scoring: ScoringService) {}
 
   @Input()
-  id: Category | ScoreDisplay = 'none';
+  id: Category | ScoreDisplay | undefined = undefined;
 
   @Input()
   score: number | undefined = undefined;

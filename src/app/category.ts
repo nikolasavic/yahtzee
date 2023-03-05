@@ -1,5 +1,4 @@
 export type Category =
-  | 'none'
   | 'aces'
   | 'twos'
   | 'threes'
