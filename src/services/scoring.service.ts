@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { RollEvaluatorService } from './roll-evaluator.service';
 import { GameControllerService } from './game-controller.service';
-import { Category } from '../app/category';
+import { Category } from '../app/data/category';
 
 @Injectable({
   providedIn: 'root',

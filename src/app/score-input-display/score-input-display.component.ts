@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ScoringService } from '../../services/scoring.service';
-import { Category } from '../category';
-import { ScoreDisplay } from '../score-display';
+import { Category } from '../data/category';
+import { ScoreDisplay } from '../data/score-display';
 
 @Component({
   selector: 'score',

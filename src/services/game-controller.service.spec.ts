@@ -3,7 +3,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 
 import { GameControllerService } from './game-controller.service';
 import { GameStateService } from './game-state.service';
-import { ScoreSheet } from '../app/score-sheet';
+import { ScoreSheet } from '../app/data/score-sheet';
 
 describe('GameControllerService', () => {
   let service: GameControllerService;

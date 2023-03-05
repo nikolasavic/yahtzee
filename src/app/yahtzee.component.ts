@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { GameStateService } from '../services/game-state.service';
-import { ScoreSheet } from './score-sheet';
+import { ScoreSheet } from './data/score-sheet';
 import { Subscription } from 'rxjs';
 
 @Component({

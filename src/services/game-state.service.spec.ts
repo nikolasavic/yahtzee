@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { GameStateService } from './game-state.service';
-import { ScoreSheet } from '../app/score-sheet';
+import { ScoreSheet } from '../app/data/score-sheet';
 
 describe('GameStateService', () => {
   let service: GameStateService;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { ScoreSheet } from '../app/score-sheet';
+import { ScoreSheet } from '../app/data/score-sheet';
 
 @Injectable({
   providedIn: 'root',

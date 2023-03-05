@@ -6,7 +6,7 @@ import { RollCountComponent } from './roll-count/roll-count.component';
 import { ScoreInputDisplayComponent } from './score-input-display/score-input-display.component';
 import { AggregateScoreComponent } from './aggregate-score/aggregate-score.component';
 import { GameStateService } from '../services/game-state.service';
-import { ScoreSheet } from './score-sheet';
+import { ScoreSheet } from './data/score-sheet';
 
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { By } from '@angular/platform-browser';
