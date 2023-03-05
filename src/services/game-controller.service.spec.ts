@@ -7,13 +7,14 @@ import { ScoreSheet } from '../app/score-sheet';
 
 describe('GameControllerService', () => {
   let service: GameControllerService;
+  let initialGameState = new ScoreSheet({
+    fours: 4,
+    fives: 5,
+    sixes: 6,
+  });
   let gameStateServiceStub = {
     scoreSheet$: new BehaviorSubject<ScoreSheet>(
-      new ScoreSheet({
-        fours: 4,
-        fives: 5,
-        sixes: 6,
-      })
+      new ScoreSheet(initialGameState)
     ),
   };
 
@@ -33,6 +34,22 @@ describe('GameControllerService', () => {
 
     it('start game with dice roll', () => {
       expect(service.isScoringPhase).toBe(false);
+    });
+  });
+
+  describe('recordScore', () => {
+    it('updates game state', () => {
+      let state = new GameStateService();
+      service = new GameControllerService(state);
+
+      expect(service.scores).toEqual(new ScoreSheet({}));
+      let expectedGameState = new ScoreSheet({
+        threes: 3,
+      });
+
+      service.recordScore('threes', 3);
+
+      expect(service.scores).toEqual(expectedGameState);
     });
   });
 

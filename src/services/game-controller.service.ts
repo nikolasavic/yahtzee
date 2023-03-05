@@ -21,7 +21,12 @@ export class GameControllerService {
   round: number = 1;
   isScoringPhase: boolean = false;
 
-  recordScore(category: Category, score: number) {}
+  recordScore(category: Category, score: number) {
+    let consObj: any = { ...this.scores };
+    consObj[category] = score;
+
+    this.state.updateScoreSheet(new ScoreSheet(consObj));
+  }
 
   ngOnDestroy() {
     this.scoreSubscription.unsubscribe();
