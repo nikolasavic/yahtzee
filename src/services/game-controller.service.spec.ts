@@ -12,16 +12,20 @@ describe('GameControllerService', () => {
     fives: 5,
     sixes: 6,
   });
-  let gameStateServiceStub = {
-    scoreSheet$: new BehaviorSubject<ScoreSheet>(
-      new ScoreSheet(initialGameState)
-    ),
-  };
+  let mockGameStateService = jasmine.createSpyObj('GameStateService', [
+    'scoreSheet$',
+    'updateScoreSheet',
+  ]);
+  const updateScoreSheetSpy = jasmine.createSpy();
 
   beforeEach(() => {
+    mockGameStateService.updateScoreSheet = updateScoreSheetSpy;
+    mockGameStateService.scoreSheet$ = new BehaviorSubject<ScoreSheet>(
+      new ScoreSheet(initialGameState)
+    );
     TestBed.configureTestingModule({
       providers: [
-        { provide: GameStateService, useValue: gameStateServiceStub },
+        { provide: GameStateService, useValue: mockGameStateService },
       ],
     });
     service = TestBed.inject(GameControllerService);
@@ -39,17 +43,11 @@ describe('GameControllerService', () => {
 
   describe('recordScore', () => {
     it('updates game state', () => {
-      let state = new GameStateService();
-      service = new GameControllerService(state);
-
-      expect(service.scores).toEqual(new ScoreSheet({}));
-      let expectedGameState = new ScoreSheet({
-        threes: 3,
-      });
+      let expected = new ScoreSheet({ ...initialGameState, threes: 3 });
 
       service.recordScore('threes', 3);
 
-      expect(service.scores).toEqual(expectedGameState);
+      expect(updateScoreSheetSpy).toHaveBeenCalledOnceWith(expected);
     });
   });
 
