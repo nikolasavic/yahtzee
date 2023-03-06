@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Category } from '../data/category-type';
-import { ScoreDisplay } from '../data/score-display';
+import { ScoreDisplay } from '../data/score-display-type';
 
 @Component({
   selector: 'aggregate-score',
