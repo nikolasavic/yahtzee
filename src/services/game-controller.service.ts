@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { Category } from '../app/data/category';
+import { Category } from '../app/data/category-type';
 import { ScoreSheet } from '../app/data/score-sheet';
 import { GameStateService } from './game-state.service';
 

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Category } from '../data/category';
+import { Category } from '../data/category-type';
 import { ScoreDisplay } from '../data/score-display';
 
 @Component({

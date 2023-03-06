@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ScoreInputDisplayComponent } from './score-input-display.component';
 import { ScoringService } from '../../services/scoring.service';
-import { Category } from '../data/category';
+import { Category } from '../data/category-type';
 
 describe('ScoreInputDisplayComponent', () => {
   let component: ScoreInputDisplayComponent;

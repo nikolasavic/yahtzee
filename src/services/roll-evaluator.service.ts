@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Category } from '../app/data/category';
+import { Category } from '../app/data/category-type';
 
 @Injectable({
   providedIn: 'root',
