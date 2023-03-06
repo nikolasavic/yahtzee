@@ -3,7 +3,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 
 import { GameControllerService } from './game-controller.service';
 import { GameStateService } from './game-state.service';
-import { ScoreSheet } from '../app/data/score-sheet';
+import { ScoreData } from '../app/data/score-data';
 
 describe('GameControllerService Integration Test', () => {
   let service: GameControllerService;
@@ -18,8 +18,8 @@ describe('GameControllerService Integration Test', () => {
       let state = new GameStateService();
       service = new GameControllerService(state);
 
-      expect(service.scores).toEqual(new ScoreSheet({}));
-      let expectedGameState = new ScoreSheet({
+      expect(service.scores).toEqual(new ScoreData({}));
+      let expectedGameState = new ScoreData({
         threes: 3,
       });
 

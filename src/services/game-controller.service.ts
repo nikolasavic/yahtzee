@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { Category } from '../app/data/category-type';
-import { ScoreSheet } from '../app/data/score-sheet';
+import { ScoreData } from '../app/data/score-data';
 import { GameStateService } from './game-state.service';
 
 @Injectable({
@@ -10,12 +10,12 @@ import { GameStateService } from './game-state.service';
 })
 export class GameControllerService {
   constructor(private state: GameStateService) {
-    this.scoreSubscription = state.scoreSheet$.subscribe((scoreSheet) => {
-      this.scores = scoreSheet;
+    this.scoreSubscription = state.scoreData$.subscribe((scoreData) => {
+      this.scores = scoreData;
     });
   }
 
-  scores: ScoreSheet = new ScoreSheet({});
+  scores: ScoreData = new ScoreData({});
   scoreSubscription: Subscription;
 
   round: number = 1;
@@ -25,7 +25,7 @@ export class GameControllerService {
     let consObj: any = { ...this.scores };
     consObj[category] = score;
 
-    this.state.updateScoreSheet(new ScoreSheet(consObj));
+    this.state.updateScoreData(new ScoreData(consObj));
   }
 
   ngOnDestroy() {

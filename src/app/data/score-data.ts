@@ -1,4 +1,4 @@
-export class ScoreSheet {
+export class ScoreData {
   constructor({
     aces,
     twos,

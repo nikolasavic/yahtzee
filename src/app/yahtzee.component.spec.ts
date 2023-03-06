@@ -6,7 +6,7 @@ import { RollCountComponent } from './roll-count/roll-count.component';
 import { ScoreInputDisplayComponent } from './score-input-display/score-input-display.component';
 import { AggregateScoreComponent } from './aggregate-score/aggregate-score.component';
 import { GameStateService } from '../services/game-state.service';
-import { ScoreSheet } from './data/score-sheet';
+import { ScoreData } from './data/score-data';
 
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { By } from '@angular/platform-browser';
@@ -16,8 +16,8 @@ describe('YahtzeeComponent', () => {
   let fixture: ComponentFixture<YahtzeeComponent>;
   let nativeEl: any;
   let gameStateServiceStub = {
-    scoreSheet$: new BehaviorSubject<ScoreSheet>(
-      new ScoreSheet({
+    scoreData$: new BehaviorSubject<ScoreData>(
+      new ScoreData({
         aces: 1,
         twos: 2,
         threes: 3,
@@ -84,7 +84,7 @@ describe('YahtzeeComponent', () => {
     });
   });
 
-  describe('score sheet', () => {
+  describe('score data', () => {
     it('unsubscribe on ngOnDestroy', () => {
       component.scoreSubscription = new Subscription();
       spyOn(component.scoreSubscription, 'unsubscribe');

@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { GameStateService } from './game-state.service';
-import { ScoreSheet } from '../app/data/score-sheet';
+import { ScoreData } from '../app/data/score-data';
 
 describe('GameStateService', () => {
   let service: GameStateService;
@@ -25,19 +25,19 @@ describe('GameStateService', () => {
     });
   });
 
-  describe('scoreSheet$ observable', () => {
-    it('updateScoreSheet() is a feed for scoreSheet$', () => {
-      let result: ScoreSheet = new ScoreSheet({});
-      const scores = new ScoreSheet({
+  describe('scoreData$ observable', () => {
+    it('updateScoreData() is a feed for scoreData$', () => {
+      let result: ScoreData = new ScoreData({});
+      const scores = new ScoreData({
         aces: 1,
         twos: 4,
         threes: undefined,
       });
-      service.scoreSheet$.subscribe((scoreSheet) => {
-        result = scoreSheet;
+      service.scoreData$.subscribe((scoreData) => {
+        result = scoreData;
       });
 
-      service.updateScoreSheet(scores);
+      service.updateScoreData(scores);
 
       expect(result).toEqual(scores);
     });
