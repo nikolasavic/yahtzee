@@ -16,30 +16,28 @@ describe('YahtzeeComponent', () => {
   let fixture: ComponentFixture<YahtzeeComponent>;
   let nativeEl: any;
   let gameStateServiceStub = {
-    scoreData$: new BehaviorSubject<ScoreData>(
-      new ScoreData({
-        aces: 1,
-        twos: 2,
-        threes: 3,
-        fours: 4,
-        fives: 5,
-        sixes: 6,
-        totalUpper: 7,
-        bonusUpper: 8,
-        grandTotalUpper: 9,
-        threeKind: 10,
-        fourKind: 11,
-        fullHouse: 12,
-        smallStr: 13,
-        largeStr: 14,
-        yahtzee: 15,
-        chance: 16,
-        yahtzeeBonusCounter: 17,
-        yahtzeeBonusTotal: 18,
-        grandTotalLower: 19,
-        grandTotal: 20,
-      })
-    ),
+    scoreData$: new BehaviorSubject<ScoreData>({
+      aces: 1,
+      twos: 2,
+      threes: 3,
+      fours: 4,
+      fives: 5,
+      sixes: 6,
+      totalUpper: 7,
+      bonusUpper: 8,
+      grandTotalUpper: 9,
+      threeKind: 10,
+      fourKind: 11,
+      fullHouse: 12,
+      smallStr: 13,
+      largeStr: 14,
+      yahtzee: 15,
+      chance: 16,
+      yahtzeeBonusCounter: 17,
+      yahtzeeBonusTotal: 18,
+      grandTotalLower: 19,
+      grandTotal: 20,
+    }),
   };
 
   beforeEach(async () => {

@@ -18,10 +18,10 @@ describe('GameControllerService Integration Test', () => {
       let state = new GameStateService();
       service = new GameControllerService(state);
 
-      expect(service.scores).toEqual(new ScoreData({}));
-      let expectedGameState = new ScoreData({
+      expect(service.scores).toEqual({});
+      let expectedGameState = {
         threes: 3,
-      });
+      };
 
       service.recordScore('threes', 3);
 

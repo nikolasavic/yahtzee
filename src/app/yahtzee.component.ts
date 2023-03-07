@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./yahtzee.component.css'],
 })
 export class YahtzeeComponent implements OnDestroy {
-  scores: ScoreData = new ScoreData({});
+  scores: ScoreData = {};
   scoreSubscription: Subscription;
 
   constructor(private state: GameStateService) {

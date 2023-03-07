@@ -7,11 +7,11 @@ import { ScoreData } from '../app/data/score-data';
 
 describe('GameControllerService', () => {
   let service: GameControllerService;
-  let initialGameState = new ScoreData({
+  let initialGameState = {
     fours: 4,
     fives: 5,
     sixes: 6,
-  });
+  };
   let mockGameStateService = jasmine.createSpyObj('GameStateService', [
     'scoreData$',
     'updateScoreData',
@@ -21,7 +21,7 @@ describe('GameControllerService', () => {
   beforeEach(() => {
     mockGameStateService.updateScoreData = updateScoreDataSpy;
     mockGameStateService.scoreData$ = new BehaviorSubject<ScoreData>(
-      new ScoreData(initialGameState)
+      initialGameState
     );
     TestBed.configureTestingModule({
       providers: [
@@ -43,7 +43,7 @@ describe('GameControllerService', () => {
 
   describe('recordScore', () => {
     it('updates game state', () => {
-      let expected = new ScoreData({ ...initialGameState, threes: 3 });
+      let expected = { ...initialGameState, threes: 3 };
 
       service.recordScore('threes', 3);
 

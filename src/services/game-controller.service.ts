@@ -15,7 +15,7 @@ export class GameControllerService {
     });
   }
 
-  scores: ScoreData = new ScoreData({});
+  scores: ScoreData = {};
   scoreSubscription: Subscription;
 
   round: number = 1;
@@ -25,7 +25,7 @@ export class GameControllerService {
     let consObj: any = { ...this.scores };
     consObj[category] = score;
 
-    this.state.updateScoreData(new ScoreData(consObj));
+    this.state.updateScoreData(consObj);
   }
 
   ngOnDestroy() {
