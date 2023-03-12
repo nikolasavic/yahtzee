@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { GameStateService } from '../services/game-state.service';
 import { ScoreData } from './data/score-data';
+import { IsScoringData } from './data/is-scoring-data';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,11 +12,19 @@ import { Subscription } from 'rxjs';
 export class YahtzeeComponent implements OnDestroy {
   scores: ScoreData = {};
   scoreSubscription: Subscription;
+  isScoring: IsScoringData = {};
+  isScoringSubscription: Subscription;
 
   constructor(private state: GameStateService) {
     this.scoreSubscription = state.scoreData$.subscribe((scoreData) => {
       this.scores = scoreData;
     });
+
+    this.isScoringSubscription = state.isScoringData$.subscribe(
+      (isScoringData) => {
+        this.isScoring = isScoringData;
+      }
+    );
   }
 
   ngOnDestroy() {

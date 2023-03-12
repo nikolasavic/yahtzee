@@ -14,57 +14,135 @@
     <tr>
       <th>Aces</th>
       <th>Count and add only aces</th>
-      <td><score [id]="'aces'" [score]="scores.aces"></score></td>
+      <td>
+        <score
+          [id]="'aces'"
+          [isScoringPhase]="isScoring.aces"
+          [score]="scores.aces"
+        ></score>
+      </td>
       <th>Three of a kind</th>
       <th>Add total of all dice</th>
-      <td><score [id]="'threeKind'" [score]="scores.threeKind"></score></td>
+      <td>
+        <score
+          [id]="'threeKind'"
+          [isScoringPhase]="isScoring.threeKind"
+          [score]="scores.threeKind"
+        ></score>
+      </td>
     </tr>
     <tr>
       <th>Twos</th>
       <th>Count and add only twos</th>
-      <td><score [id]="'twos'" [score]="scores.twos"></score></td>
+      <td>
+        <score
+          [id]="'twos'"
+          [isScoringPhase]="isScoring.twos"
+          [score]="scores.twos"
+        ></score>
+      </td>
       <th>Four of a kind</th>
       <th>Add total of all dice</th>
-      <td><score [id]="'fourKind'" [score]="scores.fourKind"></score></td>
+      <td>
+        <score
+          [id]="'fourKind'"
+          [isScoringPhase]="isScoring.fourKind"
+          [score]="scores.fourKind"
+        ></score>
+      </td>
     </tr>
     <tr>
       <th>Threes</th>
       <th>Count and add only threes</th>
-      <td><score [id]="'threes'" [score]="scores.threes"></score></td>
+      <td>
+        <score
+          [id]="'threes'"
+          [isScoringPhase]="isScoring.threes"
+          [score]="scores.threes"
+        ></score>
+      </td>
       <th>Full House</th>
       <th>Score 25</th>
-      <td><score [id]="'fullHouse'" [score]="scores.fullHouse"></score></td>
+      <td>
+        <score
+          [id]="'fullHouse'"
+          [isScoringPhase]="isScoring.fullHouse"
+          [score]="scores.fullHouse"
+        ></score>
+      </td>
     </tr>
     <tr>
       <th>Fours</th>
       <th>Count and add only fours</th>
-      <td><score [id]="'fours'" [score]="scores.fours"></score></td>
+      <td>
+        <score
+          [id]="'fours'"
+          [isScoringPhase]="isScoring.fours"
+          [score]="scores.fours"
+        ></score>
+      </td>
       <th>Sm Straight Sequence of 4</th>
       <th>Score 30</th>
-      <td><score [id]="'smallStr'" [score]="scores.smallStr"></score></td>
+      <td>
+        <score
+          [id]="'smallStr'"
+          [isScoringPhase]="isScoring.smallStr"
+          [score]="scores.smallStr"
+        ></score>
+      </td>
     </tr>
     <tr>
       <th>Fives</th>
       <th>Count and add only fives</th>
-      <td><score [id]="'fives'" [score]="scores.fives"></score></td>
+      <td>
+        <score
+          [id]="'fives'"
+          [isScoringPhase]="isScoring.fives"
+          [score]="scores.fives"
+        ></score>
+      </td>
       <th>Lg Straight Sequence of 5</th>
       <th>Score 40</th>
-      <td><score [id]="'largeStr'" [score]="scores.largeStr"></score></td>
+      <td>
+        <score
+          [id]="'largeStr'"
+          [isScoringPhase]="isScoring.largeStr"
+          [score]="scores.largeStr"
+        ></score>
+      </td>
     </tr>
     <tr>
       <th>Sixes</th>
       <th>Count and add only sixes</th>
-      <td><score [id]="'sixes'" [score]="scores.sixes"></score></td>
+      <td>
+        <score
+          [id]="'sixes'"
+          [isScoringPhase]="isScoring.sixes"
+          [score]="scores.sixes"
+        ></score>
+      </td>
       <th>Yahtzee 5 of a kind</th>
       <th>Score 50</th>
-      <td><score [id]="'yahtzee'" [score]="scores.yahtzee"></score></td>
+      <td>
+        <score
+          [id]="'yahtzee'"
+          [isScoringPhase]="isScoring.yahtzee"
+          [score]="scores.yahtzee"
+        ></score>
+      </td>
     </tr>
     <tr>
       <th colspan="2">Total Score</th>
       <td><score [id]="'totalUpper'" [score]="scores.totalUpper"></score></td>
       <th>Chance</th>
       <th>Score total of all 5 dice</th>
-      <td><score [id]="'chance'" [score]="scores.chance"></score></td>
+      <td>
+        <score
+          [id]="'chance'"
+          [isScoringPhase]="isScoring.chance"
+          [score]="scores.chance"
+        ></score>
+      </td>
     </tr>
     <tr>
       <th>Bonus <br />(if total score over 63)</th>
