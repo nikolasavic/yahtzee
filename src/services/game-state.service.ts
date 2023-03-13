@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ScoreData } from '../app/data/score-data';
-import { IsScoringData } from '../app/data/is-scoring-data';
+import {
+  IsScoringData,
+  isScoringDataWithDefaults,
+} from '../app/data/is-scoring-data';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +29,8 @@ export class GameStateService {
     this.scoreDataSource.next(scores);
   }
 
-  updateIsScoringData(isScoring: IsScoringData) {
-    this.isScoringDataSource.next(isScoring);
+  updateIsScoringData(isScoringUpdate: IsScoringData) {
+    const update: IsScoringData = isScoringDataWithDefaults(isScoringUpdate);
+    this.isScoringDataSource.next(update);
   }
 }

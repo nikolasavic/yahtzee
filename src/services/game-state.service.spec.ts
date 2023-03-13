@@ -47,7 +47,23 @@ describe('GameStateService', () => {
   describe('isScoringData$ observable', () => {
     it('updateIsScoringData() is a feed for isScoringData$', () => {
       let result: any;
-      const isScoring = {
+      const expected: IsScoringData = {
+        aces: true,
+        twos: false,
+        threes: false,
+        fours: false,
+        fives: false,
+        sixes: false,
+
+        threeKind: false,
+        fourKind: false,
+        fullHouse: false,
+        smallStr: false,
+        largeStr: true,
+        yahtzee: false,
+        chance: true,
+      };
+      const updatedValue = {
         aces: true,
         twos: false,
         threes: false,
@@ -60,9 +76,41 @@ describe('GameStateService', () => {
         result = isScoringData;
       });
 
-      service.updateIsScoringData(isScoring);
+      service.updateIsScoringData(updatedValue);
 
-      expect(result).toEqual(isScoring);
+      expect(result).toEqual(expected);
+    });
+
+    it('add missing default values to observable', () => {
+      let result: any;
+      const expected: IsScoringData = {
+        aces: true,
+        twos: false,
+        threes: false,
+        fours: false,
+        fives: true,
+        sixes: false,
+
+        threeKind: false,
+        fourKind: false,
+        fullHouse: false,
+        smallStr: false,
+        largeStr: false,
+        yahtzee: false,
+        chance: true,
+      };
+      const updatedValue = {
+        aces: true,
+        chance: true,
+        fives: true,
+      };
+      service.isScoringData$.subscribe((isScoringData) => {
+        result = isScoringData;
+      });
+
+      service.updateIsScoringData(updatedValue);
+
+      expect(result).toEqual(expected);
     });
   });
 });
