@@ -22,10 +22,10 @@ export class GameControllerService {
   isScoringPhase: boolean = false;
 
   recordScore(category: Category, score: number) {
-    let consObj: any = { ...this.scores };
-    consObj[category] = score;
+    let scoreToUpdate: any = { ...this.scores };
+    scoreToUpdate[category] = score;
 
-    this.state.updateScoreData(consObj);
+    this.state.updateScoreData(scoreToUpdate);
   }
 
   ngOnDestroy() {
