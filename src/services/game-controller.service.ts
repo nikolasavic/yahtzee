@@ -21,7 +21,9 @@ export class GameControllerService {
   round: number = 1;
   isScoringPhase: boolean = false;
 
-  diceRolled() {}
+  diceRolled() {
+    this.isScoringPhase = true;
+  }
 
   recordScore(category: Category, score: number) {
     let scoreToUpdate: any = { ...this.scores };

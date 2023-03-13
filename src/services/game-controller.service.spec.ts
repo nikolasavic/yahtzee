@@ -66,4 +66,14 @@ describe('GameControllerService', () => {
       expect(service.scoreSubscription.unsubscribe).toHaveBeenCalledTimes(1);
     });
   });
+
+  describe('dice rolls', () => {
+    it('enter scoring phase', () => {
+      expect(service.isScoringPhase).toBe(false);
+
+      service.diceRolled();
+
+      expect(service.isScoringPhase).toBe(true);
+    });
+  });
 });
