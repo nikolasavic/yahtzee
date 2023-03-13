@@ -71,6 +71,26 @@ describe('YahtzeeComponent', () => {
       fixture.detectChanges();
     });
 
+    it('unsubscribes from scoreSubscription on ngOnDestroy', () => {
+      component.scoreSubscription = new Subscription();
+      spyOn(component.scoreSubscription, 'unsubscribe');
+
+      component.ngOnDestroy();
+
+      expect(component.scoreSubscription.unsubscribe).toHaveBeenCalledTimes(1);
+    });
+
+    it('unsubscribes from isScoringSubscription on ngOnDestroy', () => {
+      component.isScoringSubscription = new Subscription();
+      spyOn(component.isScoringSubscription, 'unsubscribe');
+
+      component.ngOnDestroy();
+
+      expect(component.isScoringSubscription.unsubscribe).toHaveBeenCalledTimes(
+        1
+      );
+    });
+
     describe('renders', () => {
       it('title', () => {
         expect(nativeEl.querySelector('.title').textContent).toContain(
@@ -95,17 +115,6 @@ describe('YahtzeeComponent', () => {
     });
 
     describe('score data', () => {
-      it('unsubscribe on ngOnDestroy', () => {
-        component.scoreSubscription = new Subscription();
-        spyOn(component.scoreSubscription, 'unsubscribe');
-
-        component.ngOnDestroy();
-
-        expect(component.scoreSubscription.unsubscribe).toHaveBeenCalledTimes(
-          1
-        );
-      });
-
       describe('renders scores', () => {
         it('isScoring default is all false', () => {
           const expected: IsScoringData = {

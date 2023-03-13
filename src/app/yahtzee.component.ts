@@ -32,5 +32,6 @@ export class YahtzeeComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.scoreSubscription.unsubscribe();
+    this.isScoringSubscription.unsubscribe();
   }
 }
