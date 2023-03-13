@@ -7,7 +7,10 @@ import { ScoreInputDisplayComponent } from './score-input-display/score-input-di
 import { AggregateScoreComponent } from './aggregate-score/aggregate-score.component';
 import { GameStateService } from '../services/game-state.service';
 import { ScoreData } from './data/score-data';
-import { IsScoringData } from './data/is-scoring-data';
+import {
+  IsScoringData,
+  isScoringDataWithDefaults,
+} from './data/is-scoring-data';
 
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { By } from '@angular/platform-browser';
@@ -42,7 +45,9 @@ describe('YahtzeeComponent', () => {
         grandTotalLower: 19,
         grandTotal: 20,
       }),
-      isScoringData$: new BehaviorSubject<IsScoringData>({}),
+      isScoringData$: new BehaviorSubject<IsScoringData>(
+        isScoringDataWithDefaults({})
+      ),
     };
 
     beforeEach(async () => {
@@ -102,6 +107,26 @@ describe('YahtzeeComponent', () => {
       });
 
       describe('renders scores', () => {
+        it('isScoring default is all false', () => {
+          const expected: IsScoringData = {
+            aces: false,
+            twos: false,
+            threes: false,
+            fours: false,
+            fives: false,
+            sixes: false,
+
+            threeKind: false,
+            fourKind: false,
+            fullHouse: false,
+            smallStr: false,
+            largeStr: false,
+            yahtzee: false,
+            chance: false,
+          };
+          expect(component.isScoring).toEqual(expected);
+        });
+
         it('aces', () => {
           expect(nativeEl.querySelector('.aces').textContent).toBe('1');
         });

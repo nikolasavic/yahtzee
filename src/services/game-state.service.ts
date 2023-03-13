@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { ScoreData } from '../app/data/score-data';
 import {
   IsScoringData,
+  IsScoringDataOptional,
   isScoringDataWithDefaults,
 } from '../app/data/is-scoring-data';
 
@@ -29,7 +30,7 @@ export class GameStateService {
     this.scoreDataSource.next(scores);
   }
 
-  updateIsScoringData(isScoringUpdate: IsScoringData) {
+  updateIsScoringData(isScoringUpdate: IsScoringDataOptional) {
     const update: IsScoringData = isScoringDataWithDefaults(isScoringUpdate);
     this.isScoringDataSource.next(update);
   }
