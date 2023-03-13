@@ -1,4 +1,4 @@
-export type IsScoringData = {
+export interface IsScoringData {
   readonly aces?: boolean;
   readonly twos?: boolean;
   readonly threes?: boolean;
@@ -13,4 +13,27 @@ export type IsScoringData = {
   readonly largeStr?: boolean;
   readonly yahtzee?: boolean;
   readonly chance?: boolean;
+}
+
+export function isScoringDataWithDefaults(
+  config: IsScoringData
+): IsScoringData {
+  return { ...defaultIsScoringData, ...config };
+}
+
+const defaultIsScoringData: IsScoringData = {
+  aces: false,
+  twos: false,
+  threes: false,
+  fours: false,
+  fives: false,
+  sixes: false,
+
+  threeKind: false,
+  fourKind: false,
+  fullHouse: false,
+  smallStr: false,
+  largeStr: false,
+  yahtzee: false,
+  chance: false,
 };
