@@ -1,4 +1,4 @@
-export type ScoreData = {
+export interface ScoreData {
   readonly aces?: number | undefined;
   readonly twos?: number | undefined;
   readonly threes?: number | undefined;
@@ -23,4 +23,4 @@ export type ScoreData = {
   readonly grandTotalLower?: number | undefined;
 
   readonly grandTotal?: number | undefined;
-};
+}
