@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { RollEvaluatorService } from './roll-evaluator.service';
 import { GameControllerService } from './game-controller.service';
+import { GameStateService } from './game-state.service';
 import { Category } from '../app/data/category-type';
 
 @Injectable({
@@ -10,10 +12,16 @@ import { Category } from '../app/data/category-type';
 export class ScoringService {
   constructor(
     private rollEval: RollEvaluatorService,
-    private ctrl: GameControllerService
-  ) {}
+    private ctrl: GameControllerService,
+    private state: GameStateService
+  ) {
+    this.rollSubscription = state.dice$.subscribe((dice) => {
+      this.roll = dice;
+    });
+  }
 
-  roll: number[] = [1, 2, 3, 4, 5];
+  rollSubscription: Subscription;
+  roll: number[] = [];
 
   recordScore(category: Category) {
     const score = this.rollEval.scoreAs(category, this.roll);
