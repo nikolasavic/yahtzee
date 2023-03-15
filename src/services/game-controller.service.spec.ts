@@ -51,6 +51,14 @@ describe('GameControllerService', () => {
 
       expect(updateScoreDataSpy).toHaveBeenCalledWith(expected);
     });
+
+    it('sets scoring phase to false', () => {
+      service.isScoringPhase = true;
+
+      service.recordScore('threes', 3);
+
+      expect(service.isScoringPhase).toBe(false);
+    });
   });
 
   describe('score Data', () => {

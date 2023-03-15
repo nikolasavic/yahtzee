@@ -37,6 +37,7 @@ export class GameControllerService {
     scoreToUpdate[category] = score;
 
     this.state.updateScoreData(scoreToUpdate);
+    this.isScoringPhase = false;
   }
 
   ngOnDestroy() {
