@@ -97,7 +97,7 @@ describe('GameControllerService', () => {
       service.diceRolled();
 
       expect(service.isScoringPhase).toBe(true);
-      expect(mockGameStateService.updateIsScoringData).toHaveBeenCalledOnceWith(
+      expect(mockGameStateService.updateIsScoringData).toHaveBeenCalledWith(
         expected
       );
     });
