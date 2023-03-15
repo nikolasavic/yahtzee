@@ -4,6 +4,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 import { GameControllerService } from './game-controller.service';
 import { GameStateService } from './game-state.service';
 import { ScoreData } from '../app/data/score-data';
+import { IsScoringDataOptional } from '../app/data/is-scoring-data';
 
 describe('GameControllerService', () => {
   let service: GameControllerService;
@@ -15,6 +16,7 @@ describe('GameControllerService', () => {
   let mockGameStateService = jasmine.createSpyObj('GameStateService', [
     'scoreData$',
     'updateScoreData',
+    'updateIsScoringData',
   ]);
   const updateScoreDataSpy = jasmine.createSpy();
 
@@ -74,6 +76,30 @@ describe('GameControllerService', () => {
       service.diceRolled();
 
       expect(service.isScoringPhase).toBe(true);
+    });
+
+    it('update eligible categories for scoring', () => {
+      expect(service.isScoringPhase).toBe(false);
+      const expected: IsScoringDataOptional = {
+        aces: true,
+        twos: true,
+        threes: true,
+
+        threeKind: true,
+        fourKind: true,
+        fullHouse: true,
+        smallStr: true,
+        largeStr: true,
+        yahtzee: true,
+        chance: true,
+      };
+
+      service.diceRolled();
+
+      expect(service.isScoringPhase).toBe(true);
+      expect(mockGameStateService.updateIsScoringData).toHaveBeenCalledOnceWith(
+        expected
+      );
     });
   });
 });

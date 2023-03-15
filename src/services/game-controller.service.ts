@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { Category } from '../app/data/category-type';
+import { Category, categories } from '../app/data/category-type';
 import { ScoreData } from '../app/data/score-data';
+import { IsScoringDataOptional } from '../app/data/is-scoring-data';
 import { GameStateService } from './game-state.service';
 
 @Injectable({
@@ -23,6 +24,12 @@ export class GameControllerService {
 
   diceRolled() {
     this.isScoringPhase = true;
+
+    const scorableCategories = categories.filter((c) => !this.scores[c]);
+    let config: IsScoringDataOptional = {};
+    scorableCategories.forEach((s) => (config[s] = true));
+
+    this.state.updateIsScoringData(config);
   }
 
   recordScore(category: Category, score: number) {
