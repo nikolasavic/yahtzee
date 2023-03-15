@@ -16,20 +16,20 @@ export interface IsScoringData {
 }
 
 export interface IsScoringDataOptional {
-  readonly aces?: boolean;
-  readonly twos?: boolean;
-  readonly threes?: boolean;
-  readonly fours?: boolean;
-  readonly fives?: boolean;
-  readonly sixes?: boolean;
+  aces?: boolean;
+  twos?: boolean;
+  threes?: boolean;
+  fours?: boolean;
+  fives?: boolean;
+  sixes?: boolean;
 
-  readonly threeKind?: boolean;
-  readonly fourKind?: boolean;
-  readonly fullHouse?: boolean;
-  readonly smallStr?: boolean;
-  readonly largeStr?: boolean;
-  readonly yahtzee?: boolean;
-  readonly chance?: boolean;
+  threeKind?: boolean;
+  fourKind?: boolean;
+  fullHouse?: boolean;
+  smallStr?: boolean;
+  largeStr?: boolean;
+  yahtzee?: boolean;
+  chance?: boolean;
 }
 
 export function isScoringDataWithDefaults(
