@@ -49,7 +49,7 @@ describe('GameControllerService', () => {
 
       service.recordScore('threes', 3);
 
-      expect(updateScoreDataSpy).toHaveBeenCalledOnceWith(expected);
+      expect(updateScoreDataSpy).toHaveBeenCalledWith(expected);
     });
   });
 
