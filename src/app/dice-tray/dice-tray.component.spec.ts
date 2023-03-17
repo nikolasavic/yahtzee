@@ -37,21 +37,31 @@ describe('DiceTrayComponent', () => {
     fixture.detectChanges();
   });
 
-  it('is not paused by default', () => {
-    expect(component.paused).toEqual(false);
+  describe('defaults', () => {
+    it('not paused', () => {
+      expect(component.paused).toEqual(false);
+    });
+
+    it('blank dice for default values', () => {
+      expect(component.values).toEqual([0, 0, 0, 0, 0]);
+    });
   });
 
-  it('has a blank dice for default values', () => {
-    expect(component.values).toEqual([0, 0, 0, 0, 0]);
-  });
+  describe('rollAll', () => {
+    it('rolls all dice when roll all button clicked', () => {
+      component.values = [1, 1, 1, 1, 1];
+      let button = nativeEl.querySelector('button');
 
-  it('rolls all dice when roll all button clicked', () => {
-    component.values = [1, 1, 1, 1, 1];
-    let button = nativeEl.querySelector('button');
+      button.click();
 
-    button.click();
+      expect(component.values).toEqual([3, 3, 3, 3, 3]);
+    });
 
-    expect(component.values).toEqual([3, 3, 3, 3, 3]);
+    it('informs GameControllerService of rolls', () => {
+      component.rollAll();
+
+      expect(mockGameControllerService.diceRolled).toHaveBeenCalled();
+    });
   });
 
   it('resets internal state', () => {
@@ -66,12 +76,6 @@ describe('DiceTrayComponent', () => {
     expect(component.onHold).toEqual([false, false, false, false, false]);
     expect(component.rollRound).toBe(0);
     expect(component.paused).toBe(false);
-  });
-
-  it('informs GameControllerService of rolls', () => {
-    component.rollAll();
-
-    expect(mockGameControllerService.diceRolled).toHaveBeenCalled();
   });
 
   describe('holds', () => {
