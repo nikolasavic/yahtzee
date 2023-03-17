@@ -17,6 +17,7 @@ describe('GameControllerService', () => {
     'scoreData$',
     'updateScoreData',
     'updateIsScoringData',
+    'updateRoundData',
   ]);
   const updateScoreDataSpy = jasmine.createSpy();
 
@@ -97,6 +98,16 @@ describe('GameControllerService', () => {
       expect(service.isScoringPhase).toBe(false);
       expect(mockGameStateService.updateIsScoringData).toHaveBeenCalledWith(
         expected
+      );
+    });
+
+    it('announces new round', () => {
+      const expectedRound = 7;
+      service.round = expectedRound;
+      service.recordScore('threes', 3);
+
+      expect(mockGameStateService.updateRoundData).toHaveBeenCalledWith(
+        expectedRound
       );
     });
   });

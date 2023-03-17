@@ -42,6 +42,7 @@ export class GameControllerService {
 
     this.state.updateScoreData(scoreToUpdate);
     this.state.updateIsScoringData(config);
+    this.state.updateRoundData(this.round);
     this.isScoringPhase = false;
   }
 
