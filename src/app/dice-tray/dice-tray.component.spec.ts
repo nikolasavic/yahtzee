@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DiceTrayComponent } from './dice-tray.component';
 import { RandomnessService } from '../../services/randomness.service';
 import { GameControllerService } from '../../services/game-controller.service';
+import { GameStateService } from '../../services/game-state.service';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('DiceTrayComponent', () => {
@@ -13,6 +14,7 @@ describe('DiceTrayComponent', () => {
   let debugEl: any;
   let mockRandomService;
   let mockGameControllerService: any;
+  let mockGameStateService: any;
 
   beforeEach(async () => {
     mockRandomService = jasmine.createSpyObj('RandomnessService', ['rollD6']);
@@ -20,12 +22,16 @@ describe('DiceTrayComponent', () => {
       'diceRolled',
     ]);
     mockRandomService.rollD6.and.returnValue(3);
+    mockGameStateService = jasmine.createSpyObj('GameStateService', [
+      'updateRollData',
+    ]);
 
     await TestBed.configureTestingModule({
       declarations: [DiceTrayComponent],
       providers: [
         { provide: RandomnessService, useValue: mockRandomService },
         { provide: GameControllerService, useValue: mockGameControllerService },
+        { provide: GameStateService, useValue: mockGameStateService },
       ],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
@@ -61,6 +67,14 @@ describe('DiceTrayComponent', () => {
       component.rollAll();
 
       expect(mockGameControllerService.diceRolled).toHaveBeenCalled();
+    });
+
+    it('informs GameStateService of rolls', () => {
+      component.rollAll();
+
+      expect(mockGameStateService.updateRollData).toHaveBeenCalledWith([
+        3, 3, 3, 3, 3,
+      ]);
     });
   });
 

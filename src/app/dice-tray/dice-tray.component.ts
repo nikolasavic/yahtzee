@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RandomnessService } from '../../services/randomness.service';
 import { GameControllerService } from '../../services/game-controller.service';
+import { GameStateService } from '../../services/game-state.service';
 @Component({
   selector: 'dice-tray',
   templateUrl: './dice-tray.component.html',
@@ -9,7 +10,8 @@ import { GameControllerService } from '../../services/game-controller.service';
 export class DiceTrayComponent {
   constructor(
     private random: RandomnessService,
-    private ctrl: GameControllerService
+    private ctrl: GameControllerService,
+    private state: GameStateService
   ) {}
 
   rollRound = 0;
@@ -27,6 +29,7 @@ export class DiceTrayComponent {
       });
 
       this.ctrl.diceRolled();
+      this.state.updateRollData(this.values);
 
       if (this.rollRound >= 3) {
         this.onHold = [false, false, false, false, false];
