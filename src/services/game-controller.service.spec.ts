@@ -43,24 +43,6 @@ describe('GameControllerService', () => {
     });
   });
 
-  describe('recordScore', () => {
-    it('updates game state', () => {
-      let expected = { ...initialGameState, threes: 3 };
-
-      service.recordScore('threes', 3);
-
-      expect(updateScoreDataSpy).toHaveBeenCalledWith(expected);
-    });
-
-    it('sets scoring phase to false', () => {
-      service.isScoringPhase = true;
-
-      service.recordScore('threes', 3);
-
-      expect(service.isScoringPhase).toBe(false);
-    });
-  });
-
   describe('score Data', () => {
     it('subscribes and saves game state', () => {
       expect(service.scores.aces).toBe(undefined);
@@ -77,7 +59,25 @@ describe('GameControllerService', () => {
     });
   });
 
-  describe('dice rolls', () => {
+  describe('recordScore', () => {
+    it('updates game state', () => {
+      let expected = { ...initialGameState, threes: 3 };
+
+      service.recordScore('threes', 3);
+
+      expect(updateScoreDataSpy).toHaveBeenCalledWith(expected);
+    });
+
+    it('exit scoring phase', () => {
+      service.isScoringPhase = true;
+
+      service.recordScore('threes', 3);
+
+      expect(service.isScoringPhase).toBe(false);
+    });
+  });
+
+  describe('diceRolled', () => {
     it('enter scoring phase', () => {
       expect(service.isScoringPhase).toBe(false);
 
