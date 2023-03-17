@@ -13,8 +13,8 @@ import {
 export class GameStateService {
   constructor() {}
 
-  private diceSource = new Subject<number[]>();
-  dice$ = this.diceSource.asObservable();
+  private rollDataSource = new Subject<number[]>();
+  rollData$ = this.rollDataSource.asObservable();
 
   private scoreDataSource = new Subject<ScoreData>();
   scoreData$ = this.scoreDataSource.asObservable();
@@ -22,8 +22,8 @@ export class GameStateService {
   private isScoringDataSource = new Subject<IsScoringData>();
   isScoringData$ = this.isScoringDataSource.asObservable();
 
-  updateDice(roll: number[]) {
-    this.diceSource.next(roll);
+  updateRollData(roll: number[]) {
+    this.rollDataSource.next(roll);
   }
 
   updateScoreData(scores: ScoreData) {

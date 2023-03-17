@@ -16,11 +16,11 @@ describe('GameStateService', () => {
     it('updateDice() is a feed for dice$', () => {
       let result: number[] = [];
       const rolls = [3, 1, 4, 1, 5];
-      service.dice$.subscribe((roll) => {
+      service.rollData$.subscribe((roll) => {
         result = roll;
       });
 
-      service.updateDice(rolls);
+      service.updateRollData(rolls);
 
       expect(result).toEqual(rolls);
     });

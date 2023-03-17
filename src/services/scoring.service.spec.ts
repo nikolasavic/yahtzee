@@ -25,7 +25,7 @@ describe('ScoringService', () => {
     ]);
 
     mockGameStateService = {
-      dice$: new BehaviorSubject<number[]>(roll),
+      rollData$: new BehaviorSubject<number[]>(roll),
     };
 
     TestBed.configureTestingModule({

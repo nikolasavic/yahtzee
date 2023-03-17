@@ -15,7 +15,7 @@ export class ScoringService {
     private ctrl: GameControllerService,
     private state: GameStateService
   ) {
-    this.rollSubscription = state.dice$.subscribe((dice) => {
+    this.rollSubscription = state.rollData$.subscribe((dice) => {
       this.roll = dice;
     });
   }
