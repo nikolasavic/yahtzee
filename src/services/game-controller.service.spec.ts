@@ -75,6 +75,30 @@ describe('GameControllerService', () => {
 
       expect(service.isScoringPhase).toBe(false);
     });
+
+    it('notify eligible categories to display score', () => {
+      service.isScoringPhase = true;
+      const expected: IsScoringDataOptional = {
+        aces: false,
+        twos: false,
+        threes: false,
+
+        threeKind: false,
+        fourKind: false,
+        fullHouse: false,
+        smallStr: false,
+        largeStr: false,
+        yahtzee: false,
+        chance: false,
+      };
+
+      service.recordScore('threes', 3);
+
+      expect(service.isScoringPhase).toBe(false);
+      expect(mockGameStateService.updateIsScoringData).toHaveBeenCalledWith(
+        expected
+      );
+    });
   });
 
   describe('diceRolled', () => {
@@ -86,7 +110,7 @@ describe('GameControllerService', () => {
       expect(service.isScoringPhase).toBe(true);
     });
 
-    it('update eligible categories for scoring', () => {
+    it('notifly eligible categories to render score button', () => {
       expect(service.isScoringPhase).toBe(false);
       const expected: IsScoringDataOptional = {
         aces: true,

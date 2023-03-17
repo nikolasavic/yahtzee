@@ -36,7 +36,12 @@ export class GameControllerService {
     let scoreToUpdate: any = { ...this.scores };
     scoreToUpdate[category] = score;
 
+    const scorableCategories = categories.filter((c) => !this.scores[c]);
+    let config: IsScoringDataOptional = {};
+    scorableCategories.forEach((s) => (config[s] = false));
+
     this.state.updateScoreData(scoreToUpdate);
+    this.state.updateIsScoringData(config);
     this.isScoringPhase = false;
   }
 
