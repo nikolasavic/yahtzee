@@ -12,8 +12,8 @@ describe('GameStateService', () => {
     service = TestBed.inject(GameStateService);
   });
 
-  describe('dice$ observable', () => {
-    it('updateDice() is a feed for dice$', () => {
+  describe('rollData$ observable', () => {
+    it('updateDice() is a feed for rollData$', () => {
       let result: number[] = [];
       const rolls = [3, 1, 4, 1, 5];
       service.rollData$.subscribe((roll) => {
@@ -111,6 +111,20 @@ describe('GameStateService', () => {
       service.updateIsScoringData(updatedValue);
 
       expect(result).toEqual(expected);
+    });
+  });
+
+  describe('round$ observable', () => {
+    it('updateRound() is a feed for round$', () => {
+      let result: number = 0;
+      const updatedRound = 4;
+      service.round$.subscribe((round) => {
+        result = round;
+      });
+
+      service.updateRoundData(updatedRound);
+
+      expect(result).toEqual(updatedRound);
     });
   });
 });

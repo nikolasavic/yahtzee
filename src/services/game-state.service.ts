@@ -13,6 +13,9 @@ import {
 export class GameStateService {
   constructor() {}
 
+  private roundDataSource = new Subject<number>();
+  round$ = this.roundDataSource.asObservable();
+
   private rollDataSource = new Subject<number[]>();
   rollData$ = this.rollDataSource.asObservable();
 
@@ -21,6 +24,10 @@ export class GameStateService {
 
   private isScoringDataSource = new Subject<IsScoringData>();
   isScoringData$ = this.isScoringDataSource.asObservable();
+
+  updateRoundData(round: number) {
+    this.roundDataSource.next(round);
+  }
 
   updateRollData(roll: number[]) {
     this.rollDataSource.next(roll);
