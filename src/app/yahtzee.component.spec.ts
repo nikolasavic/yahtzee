@@ -49,6 +49,7 @@ describe('YahtzeeComponent', () => {
         isScoringDataWithDefaults({})
       ),
       rollData$: new BehaviorSubject<number[]>([]),
+      round$: new BehaviorSubject<number>(0),
     };
 
     beforeEach(async () => {
@@ -249,6 +250,7 @@ describe('YahtzeeComponent', () => {
             chance: true,
           }),
           rollData$: new BehaviorSubject<number[]>([]),
+          round$: new BehaviorSubject<number>(0),
         };
         await TestBed.configureTestingModule({
           declarations: [

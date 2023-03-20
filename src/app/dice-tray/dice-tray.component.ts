@@ -12,8 +12,14 @@ export class DiceTrayComponent {
     private random: RandomnessService,
     private ctrl: GameControllerService,
     private state: GameStateService
-  ) {}
+  ) {
+    this.state.round$.subscribe((round) => {
+      this.gameRound = round;
+      this.reset();
+    });
+  }
 
+  gameRound = 0;
   rollRound = 0;
   paused: boolean = false;
   values: number[] = [0, 0, 0, 0, 0];

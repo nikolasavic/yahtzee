@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { BehaviorSubject } from 'rxjs';
 
 import { DiceTrayComponent } from './dice-tray.component';
 import { RandomnessService } from '../../services/randomness.service';
@@ -15,6 +16,7 @@ describe('DiceTrayComponent', () => {
   let mockRandomService;
   let mockGameControllerService: any;
   let mockGameStateService: any;
+  let mockRoundObservable: BehaviorSubject<number>;
 
   beforeEach(async () => {
     mockRandomService = jasmine.createSpyObj('RandomnessService', ['rollD6']);
@@ -24,7 +26,10 @@ describe('DiceTrayComponent', () => {
     mockRandomService.rollD6.and.returnValue(3);
     mockGameStateService = jasmine.createSpyObj('GameStateService', [
       'updateRollData',
+      'round$',
     ]);
+    mockRoundObservable = new BehaviorSubject<number>(4);
+    mockGameStateService.round$ = mockRoundObservable;
 
     await TestBed.configureTestingModule({
       declarations: [DiceTrayComponent],
@@ -78,18 +83,31 @@ describe('DiceTrayComponent', () => {
     });
   });
 
-  it('resets internal state', () => {
-    component.values = [1, 1, 1, 1, 1];
-    component.onHold = [false, true, true, false, false];
-    component.rollRound = 3;
-    component.paused = true;
+  describe('reset', () => {
+    it('resets internal state', () => {
+      component.values = [1, 1, 1, 1, 1];
+      component.onHold = [false, true, true, false, false];
+      component.rollRound = 3;
+      component.paused = true;
 
-    component.reset();
+      component.reset();
 
-    expect(component.values).toEqual([0, 0, 0, 0, 0]);
-    expect(component.onHold).toEqual([false, false, false, false, false]);
-    expect(component.rollRound).toBe(0);
-    expect(component.paused).toBe(false);
+      expect(component.values).toEqual([0, 0, 0, 0, 0]);
+      expect(component.onHold).toEqual([false, false, false, false, false]);
+      expect(component.rollRound).toBe(0);
+      expect(component.paused).toBe(false);
+    });
+
+    it('reset after new round announced', () => {
+      expect(component.gameRound).toBe(4);
+
+      mockRoundObservable.next(5);
+      fixture.detectChanges();
+
+      expect(component.gameRound).toBe(5);
+      expect(component.rollRound).toBe(0);
+      expect(component.paused).toBe(false);
+    });
   });
 
   describe('holds', () => {
