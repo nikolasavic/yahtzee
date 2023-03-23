@@ -7,6 +7,7 @@ import { DiceTrayComponent } from './dice-tray/dice-tray.component';
 import { RollCountComponent } from './roll-count/roll-count.component';
 import { ScoreInputDisplayComponent } from './score-input-display/score-input-display.component';
 import { AggregateScoreComponent } from './aggregate-score/aggregate-score.component';
+import { BonusComponent } from './bonus/bonus.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AggregateScoreComponent } from './aggregate-score/aggregate-score.compo
     RollCountComponent,
     ScoreInputDisplayComponent,
     AggregateScoreComponent,
+    BonusComponent,
   ],
   imports: [BrowserModule],
   providers: [],
