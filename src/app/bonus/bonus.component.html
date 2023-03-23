@@ -1,3 +1,11 @@
 <ng-container [ngSwitch]="bonusValue">
   <div *ngSwitchCase="0"></div>
+  <div *ngSwitchCase="1">
+    <img src="assets/check.svg" width="25px" height="25px" />
+  </div>
+  <div *ngSwitchDefault>
+    <span>
+      <img src="assets/check.svg" width="25px" height="25px" />x{{ bonusValue }}
+    </span>
+  </div>
 </ng-container>

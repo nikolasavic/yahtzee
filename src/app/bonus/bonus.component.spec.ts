@@ -21,4 +21,19 @@ describe('BonusComponent', () => {
   it('does not show anything if there is no bonus', () => {
     expect(nativeEl.innerText).toBe('');
   });
+
+  it('shows checkmark if bonus == 1', () => {
+    component.bonusValue = 1;
+    fixture.detectChanges();
+
+    expect(nativeEl.querySelector('div img').src).toContain('check.svg');
+  });
+
+  it('shows checkmark times value if bonus > 1', () => {
+    component.bonusValue = 2;
+    fixture.detectChanges();
+
+    expect(nativeEl.innerText).toBe('x2');
+    expect(nativeEl.querySelector('div img').src).toContain('check.svg');
+  });
 });
