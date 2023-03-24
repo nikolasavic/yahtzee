@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 
 import { GameControllerService } from './game-controller.service';
 import { GameStateService } from './game-state.service';
@@ -23,9 +23,7 @@ describe('GameControllerService', () => {
 
   beforeEach(() => {
     mockGameStateService.updateScoreData = updateScoreDataSpy;
-    mockGameStateService.scoreData$ = new BehaviorSubject<ScoreData>(
-      initialGameState
-    );
+    mockGameStateService.scoreData$ = new Subject<ScoreData>();
     TestBed.configureTestingModule({
       providers: [
         { provide: GameStateService, useValue: mockGameStateService },
@@ -46,6 +44,8 @@ describe('GameControllerService', () => {
 
   describe('score Data', () => {
     it('subscribes and saves game state', () => {
+      mockGameStateService.scoreData$.next(initialGameState);
+
       expect(service.scores.aces).toBe(undefined);
       expect(service.scores.sixes).toBe(6);
     });
@@ -62,6 +62,7 @@ describe('GameControllerService', () => {
 
   describe('recordScore', () => {
     it('updates game state', () => {
+      mockGameStateService.scoreData$.next(initialGameState);
       let expected = { ...initialGameState, threes: 3 };
 
       service.recordScore('threes', 3);
@@ -78,6 +79,7 @@ describe('GameControllerService', () => {
     });
 
     it('notify eligible categories to display score', () => {
+      mockGameStateService.scoreData$.next(initialGameState);
       service.isScoringPhase = true;
       const expected: IsScoringDataOptional = {
         aces: false,
@@ -122,6 +124,7 @@ describe('GameControllerService', () => {
     });
 
     it('notifly eligible categories to render score button', () => {
+      mockGameStateService.scoreData$.next(initialGameState);
       expect(service.isScoringPhase).toBe(false);
       const expected: IsScoringDataOptional = {
         aces: true,
