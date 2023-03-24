@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-bonus',
+  selector: 'yahtzee-bonus',
   templateUrl: './bonus.component.html',
   styleUrls: ['./bonus.component.css'],
 })
 export class BonusComponent {
-  bonusValue: number = 0;
+  @Input()
+  value: number | undefined = undefined;
 }

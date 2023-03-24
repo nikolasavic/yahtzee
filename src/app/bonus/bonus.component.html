@@ -1,11 +1,71 @@
-<ng-container [ngSwitch]="bonusValue">
+<ng-container [ngSwitch]="value">
+  <div *ngSwitchCase="undefined"></div>
   <div *ngSwitchCase="0"></div>
   <div *ngSwitchCase="1">
-    <img src="assets/check.svg" width="25px" height="25px" />
+    <img src="assets/check.svg" width="30px" height="30px" />
+  </div>
+  <div *ngSwitchCase="2">
+    <img src="assets/check.svg" width="30px" height="30px" />
+    <img src="assets/x.svg" width="20px" height="20px" />
+    <img src="assets/numbers/2.svg" width="27px" height="27px" />
+  </div>
+  <div *ngSwitchCase="3">
+    <img src="assets/check.svg" width="30px" height="30px" />
+    <img src="assets/x.svg" width="20px" height="20px" />
+    <img src="assets/numbers/3.svg" width="27px" height="27px" />
+  </div>
+  <div *ngSwitchCase="4">
+    <img src="assets/check.svg" width="30px" height="30px" />
+    <img src="assets/x.svg" width="20px" height="20px" />
+    <img src="assets/numbers/4.svg" width="27px" height="27px" />
+  </div>
+  <div *ngSwitchCase="5">
+    <img src="assets/check.svg" width="30px" height="30px" />
+    <img src="assets/x.svg" width="20px" height="20px" />
+    <img src="assets/numbers/5.svg" width="27px" height="27px" />
+  </div>
+  <div *ngSwitchCase="6">
+    <img src="assets/check.svg" width="30px" height="30px" />
+    <img src="assets/x.svg" width="20px" height="20px" />
+    <img src="assets/numbers/6.svg" width="27px" height="27px" />
+  </div>
+  <div *ngSwitchCase="7">
+    <img src="assets/check.svg" width="30px" height="30px" />
+    <img src="assets/x.svg" width="20px" height="20px" />
+    <img src="assets/numbers/7.svg" width="27px" height="27px" />
+  </div>
+  <div *ngSwitchCase="8">
+    <img src="assets/check.svg" width="30px" height="30px" />
+    <img src="assets/x.svg" width="20px" height="20px" />
+    <img src="assets/numbers/8.svg" width="27px" height="27px" />
+  </div>
+  <div *ngSwitchCase="9">
+    <img src="assets/check.svg" width="30px" height="30px" />
+    <img src="assets/x.svg" width="20px" height="20px" />
+    <img src="assets/numbers/9.svg" width="27px" height="27px" />
+  </div>
+  <div *ngSwitchCase="10">
+    <img src="assets/check.svg" width="30px" height="30px" />
+    <img src="assets/x.svg" width="20px" height="20px" />
+    <img src="assets/numbers/1.svg" width="27px" height="27px" />
+    <img src="assets/numbers/0.svg" width="27px" height="27px" />
+  </div>
+  <div *ngSwitchCase="11">
+    <img src="assets/check.svg" width="30px" height="30px" />
+    <img src="assets/x.svg" width="20px" height="20px" />
+    <img src="assets/numbers/1.svg" width="27px" height="27px" />
+    <img src="assets/numbers/1.svg" width="27px" height="27px" />
+  </div>
+  <div *ngSwitchCase="12">
+    <img src="assets/check.svg" width="30px" height="30px" />
+    <img src="assets/x.svg" width="20px" height="20px" />
+    <img src="assets/numbers/1.svg" width="27px" height="27px" />
+    <img src="assets/numbers/2.svg" width="27px" height="27px" />
   </div>
   <div *ngSwitchDefault>
-    <span>
-      <img src="assets/check.svg" width="25px" height="25px" />x{{ bonusValue }}
-    </span>
+    <img src="assets/check.svg" width="30px" height="30px" />
+    <img src="assets/x.svg" width="20px" height="20px" />
+    <img src="assets/numbers/0.svg" width="27px" height="27px" />
+    <img src="assets/numbers/0.svg" width="27px" height="27px" />
   </div>
 </ng-container>
