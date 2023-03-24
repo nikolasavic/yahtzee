@@ -21,7 +21,7 @@ describe('DieComponent', () => {
 
   it('default die value is 0', () => {
     expect(component.value).toBe(0);
-    expect(nativeEl.querySelector('img').src).toContain('assets/dice-0.svg');
+    expect(nativeEl.querySelector('img').src).toContain('assets/dice/dice-0.svg');
   });
 
   it('default hold value is false', () => {
@@ -36,7 +36,7 @@ describe('DieComponent', () => {
     component.value = 5;
     fixture.detectChanges();
 
-    expect(nativeEl.querySelector('img').src).toContain('assets/dice-5.svg');
+    expect(nativeEl.querySelector('img').src).toContain('assets/dice/dice-5.svg');
   });
 
   it('sets correct position based on position input', () => {
