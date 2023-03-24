@@ -21,11 +21,11 @@ describe('BonusComponent', () => {
     fixture.detectChanges();
   });
 
-  it('does not show anything if there is no bonus', () => {
+  it('does not show anything if bonus value is undefined', () => {
     expect(nativeEl.innerText).toBe('');
   });
 
-  it('does not show anything if bonus == 0', () => {
+  it('does not show anything if bonus value is 0', () => {
     component.value = 0;
     fixture.detectChanges();
 
