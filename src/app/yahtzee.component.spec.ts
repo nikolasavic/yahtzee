@@ -3,6 +3,7 @@ import { YahtzeeComponent } from './yahtzee.component';
 import { DieComponent } from './die/die.component';
 import { DiceTrayComponent } from './dice-tray/dice-tray.component';
 import { RollCountComponent } from './roll-count/roll-count.component';
+import { BonusComponent } from './bonus/bonus.component';
 import { ScoreInputDisplayComponent } from './score-input-display/score-input-display.component';
 import { AggregateScoreComponent } from './aggregate-score/aggregate-score.component';
 import { GameStateService } from '../services/game-state.service';
@@ -19,6 +20,7 @@ describe('YahtzeeComponent', () => {
   let component: YahtzeeComponent;
   let fixture: ComponentFixture<YahtzeeComponent>;
   let nativeEl: any;
+  let debugEl: any;
   let gameStateServiceStub: any;
 
   describe('scored categories', () => {
@@ -40,7 +42,7 @@ describe('YahtzeeComponent', () => {
         largeStr: 14,
         yahtzee: 15,
         chance: 16,
-        yahtzeeBonusCounter: 17,
+        yahtzeeBonusCounter: 10,
         yahtzeeBonusTotal: 18,
         grandTotalLower: 19,
         grandTotal: 20,
@@ -61,6 +63,7 @@ describe('YahtzeeComponent', () => {
           RollCountComponent,
           ScoreInputDisplayComponent,
           AggregateScoreComponent,
+          BonusComponent,
         ],
         providers: [
           { provide: GameStateService, useValue: gameStateServiceStub },
@@ -70,6 +73,7 @@ describe('YahtzeeComponent', () => {
       fixture = TestBed.createComponent(YahtzeeComponent);
       component = fixture.componentInstance;
       nativeEl = fixture.nativeElement;
+      debugEl = fixture.debugElement;
       fixture.detectChanges();
     });
 
@@ -205,9 +209,12 @@ describe('YahtzeeComponent', () => {
         });
 
         it('yahtzeeBonusCounter', () => {
-          expect(
-            nativeEl.querySelector('.yahtzeeBonusCounter').textContent
-          ).toBe('17');
+          let images = debugEl.queryAll(By.css('.yahtzeeBonusCounter div img'));
+
+          expect(images[0].properties.src).toContain('check.svg');
+          expect(images[1].properties.src).toContain('x.svg');
+          expect(images[2].properties.src).toContain('1.svg');
+          expect(images[3].properties.src).toContain('0.svg');
         });
 
         it('yahtzeeBonusTotal', () => {
@@ -260,6 +267,7 @@ describe('YahtzeeComponent', () => {
             RollCountComponent,
             ScoreInputDisplayComponent,
             AggregateScoreComponent,
+            BonusComponent,
           ],
           providers: [
             { provide: GameStateService, useValue: gameStateServiceStub },
