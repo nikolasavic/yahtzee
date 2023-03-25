@@ -147,5 +147,59 @@ describe('GameControllerService', () => {
         expected
       );
     });
+
+    describe('post record update', () => {
+      describe('upper section is complete', () => {
+        it('no bonus', () => {
+          service.scores = {
+            aces: 3,
+            twos: 6,
+            threes: 9,
+            fours: 4,
+            fives: 5,
+          };
+          const expected = {
+            aces: 3,
+            twos: 6,
+            threes: 9,
+            fours: 4,
+            fives: 5,
+            sixes: 12,
+            bonusUpper: 0,
+            totalUpper: 39,
+            grandTotalUpper: 39,
+          };
+
+          service.recordScore('sixes', 12);
+
+          expect(updateScoreDataSpy).toHaveBeenCalledWith(expected);
+        });
+
+        it('bonus', () => {
+          service.scores = {
+            aces: 3,
+            twos: 6,
+            threes: 9,
+            fours: 12,
+            fives: 15,
+          };
+          const expected = {
+            aces: 3,
+            twos: 6,
+            threes: 9,
+            fours: 12,
+            fives: 15,
+            sixes: 18,
+            bonusUpper: 35,
+            totalUpper: 63,
+            grandTotalUpper: 98,
+          };
+
+          service.recordScore('sixes', 18);
+
+          expect(updateScoreDataSpy).toHaveBeenCalledWith(expected);
+        });
+      });
+    });
   });
 });

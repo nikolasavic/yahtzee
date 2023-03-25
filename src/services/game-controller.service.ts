@@ -44,9 +44,46 @@ export class GameControllerService {
     this.state.updateIsScoringData(config);
     this.state.updateRoundData(this.round);
     this.isScoringPhase = false;
+
+    this.postRecordUpdate(scoreToUpdate);
   }
 
   ngOnDestroy() {
     this.scoreSubscription.unsubscribe();
+  }
+
+  private postRecordUpdate(score: ScoreData) {
+    this.upperBonusUpate(score);
+  }
+
+  private upperBonusUpate(score: ScoreData) {
+    if (
+      score.bonusUpper == undefined &&
+      score.aces != undefined &&
+      score.twos != undefined &&
+      score.threes != undefined &&
+      score.fours != undefined &&
+      score.fives != undefined &&
+      score.sixes != undefined
+    ) {
+      const preBonus =
+        score.aces +
+        score.twos +
+        score.threes +
+        score.fours +
+        score.fives +
+        score.sixes;
+
+      const bonus = preBonus >= 63 ? 35 : 0;
+      const total = preBonus + bonus;
+      const scoreToUpdate = {
+        ...score,
+        bonusUpper: bonus,
+        totalUpper: preBonus,
+        grandTotalUpper: total,
+      };
+
+      this.state.updateScoreData(scoreToUpdate);
+    }
   }
 }
