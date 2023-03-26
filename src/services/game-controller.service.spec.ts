@@ -103,10 +103,19 @@ describe('GameControllerService', () => {
       );
     });
 
-    it('announces new round', () => {
-      const expectedRound = 7;
-      service.round = expectedRound;
+    it('increments round', () => {
+      service.round = 8;
+      const expectedRound = 9;
+
       service.recordScore('threes', 3);
+
+      expect(service.round).toBe(expectedRound);
+    });
+
+    it('announces new round', () => {
+      service.round = 6;
+      service.recordScore('threes', 3);
+      const expectedRound = 7;
 
       expect(mockGameStateService.updateRoundData).toHaveBeenCalledWith(
         expectedRound

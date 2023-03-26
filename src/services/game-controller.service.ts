@@ -36,6 +36,7 @@ export class GameControllerService {
   }
 
   recordScore(category: Category, score: number) {
+    this.round++;
     let scoreToUpdate: any = { ...this.scores };
     scoreToUpdate[category] = score;
 
