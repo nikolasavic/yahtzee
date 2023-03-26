@@ -124,12 +124,17 @@ describe('GameControllerService', () => {
     });
 
     it('notifly eligible categories to render score button', () => {
-      mockGameStateService.scoreData$.next(initialGameState);
+      const scores = {
+        threes: 0,
+        fours: 4,
+        fives: 10,
+        sixes: 18,
+      };
+      mockGameStateService.scoreData$.next(scores);
       expect(service.isScoringPhase).toBe(false);
       const expected: IsScoringDataOptional = {
         aces: true,
         twos: true,
-        threes: true,
 
         threeKind: true,
         fourKind: true,

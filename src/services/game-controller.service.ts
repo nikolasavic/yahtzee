@@ -25,7 +25,10 @@ export class GameControllerService {
   diceRolled() {
     this.isScoringPhase = true;
 
-    const scorableCategories = categories.filter((c) => !this.scores[c]);
+    const scorableCategories = categories.filter(
+      (c) => this.scores[c] == undefined
+    );
+
     let config: IsScoringDataOptional = {};
     scorableCategories.forEach((s) => (config[s] = true));
 
