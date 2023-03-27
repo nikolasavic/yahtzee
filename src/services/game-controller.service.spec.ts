@@ -121,54 +121,6 @@ describe('GameControllerService', () => {
         expectedRound
       );
     });
-
-    it('display grand total after round 13', () => {
-      const currentState: ScoreData = {
-        aces: 5,
-        twos: 8,
-        threes: 12,
-        fours: 16,
-        fives: 15,
-        sixes: 12,
-        totalUpper: 68,
-        bonusUpper: 35,
-        grandTotalUpper: 103,
-        threeKind: 25,
-        fourKind: 15,
-        fullHouse: 25,
-        smallStr: 30,
-        largeStr: 40,
-        yahtzee: 0,
-      };
-      const expected = {
-        aces: 5,
-        twos: 8,
-        threes: 12,
-        fours: 16,
-        fives: 15,
-        sixes: 12,
-
-        totalUpper: 68,
-        bonusUpper: 35,
-        grandTotalUpper: 103,
-
-        threeKind: 25,
-        fourKind: 15,
-        fullHouse: 25,
-        smallStr: 30,
-        largeStr: 40,
-        yahtzee: 0,
-        chance: 5,
-
-        grandTotal: 243,
-      };
-      service.round = 13;
-      mockGameStateService.scoreData$.next(currentState);
-
-      service.recordScore('chance', 5);
-
-      expect(updateScoreDataSpy).toHaveBeenCalledWith(expected);
-    });
   });
 
   describe('diceRolled', () => {
@@ -211,6 +163,54 @@ describe('GameControllerService', () => {
     });
 
     describe('post record update', () => {
+      it('display grand total after round 13', () => {
+        const currentState: ScoreData = {
+          aces: 5,
+          twos: 8,
+          threes: 12,
+          fours: 16,
+          fives: 15,
+          sixes: 12,
+          totalUpper: 68,
+          bonusUpper: 35,
+          grandTotalUpper: 103,
+          threeKind: 25,
+          fourKind: 15,
+          fullHouse: 25,
+          smallStr: 30,
+          largeStr: 40,
+          yahtzee: 0,
+        };
+        const expected = {
+          aces: 5,
+          twos: 8,
+          threes: 12,
+          fours: 16,
+          fives: 15,
+          sixes: 12,
+
+          totalUpper: 68,
+          bonusUpper: 35,
+          grandTotalUpper: 103,
+
+          threeKind: 25,
+          fourKind: 15,
+          fullHouse: 25,
+          smallStr: 30,
+          largeStr: 40,
+          yahtzee: 0,
+          chance: 5,
+
+          grandTotal: 243,
+        };
+        service.round = 13;
+        mockGameStateService.scoreData$.next(currentState);
+
+        service.recordScore('chance', 5);
+
+        expect(updateScoreDataSpy).toHaveBeenCalledWith(expected);
+      });
+
       describe('upper section is complete', () => {
         it('no bonus', () => {
           service.scores = {
