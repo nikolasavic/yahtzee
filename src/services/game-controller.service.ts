@@ -57,11 +57,11 @@ export class GameControllerService {
   }
 
   private postRecordUpdate(score: ScoreData) {
-    this.upperBonusUpate(score);
+    this.upperBonusUpdate(score);
     this.grandTotalUpdate(score);
   }
 
-  private upperBonusUpate(score: ScoreData) {
+  private upperBonusUpdate(score: ScoreData) {
     if (
       score.bonusUpper == undefined &&
       score.aces != undefined &&
