@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { BehaviorSubject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 import { DiceTrayComponent } from './dice-tray.component';
 import { RandomnessService } from '../../services/randomness.service';
@@ -16,7 +16,7 @@ describe('DiceTrayComponent', () => {
   let mockRandomService;
   let mockGameControllerService: any;
   let mockGameStateService: any;
-  let mockRoundObservable: BehaviorSubject<number>;
+  let mockRoundObservable: Subject<number>;
 
   beforeEach(async () => {
     mockRandomService = jasmine.createSpyObj('RandomnessService', ['rollD6']);
@@ -28,7 +28,7 @@ describe('DiceTrayComponent', () => {
       'updateRollData',
       'round$',
     ]);
-    mockRoundObservable = new BehaviorSubject<number>(4);
+    mockRoundObservable = new Subject<number>();
     mockGameStateService.round$ = mockRoundObservable;
 
     await TestBed.configureTestingModule({
@@ -99,8 +99,6 @@ describe('DiceTrayComponent', () => {
     });
 
     it('reset after new round announced', () => {
-      expect(component.gameRound).toBe(4);
-
       mockRoundObservable.next(5);
       fixture.detectChanges();
 
