@@ -58,6 +58,7 @@ export class GameControllerService {
 
   private postRecordUpdate(score: ScoreData) {
     this.upperBonusUpate(score);
+    this.grandTotalUpdate(score);
   }
 
   private upperBonusUpate(score: ScoreData) {
@@ -89,5 +90,37 @@ export class GameControllerService {
 
       this.state.updateScoreData(scoreToUpdate);
     }
+  }
+
+  private grandTotalUpdate(score: ScoreData) {
+    if (this.round >= 14) {
+      const grandTotal =
+        this.undefinedNumToNumber(score.aces) +
+        this.undefinedNumToNumber(score.twos) +
+        this.undefinedNumToNumber(score.threes) +
+        this.undefinedNumToNumber(score.fours) +
+        this.undefinedNumToNumber(score.fives) +
+        this.undefinedNumToNumber(score.sixes) +
+        this.undefinedNumToNumber(score.bonusUpper) +
+        this.undefinedNumToNumber(score.threeKind) +
+        this.undefinedNumToNumber(score.fourKind) +
+        this.undefinedNumToNumber(score.fullHouse) +
+        this.undefinedNumToNumber(score.smallStr) +
+        this.undefinedNumToNumber(score.largeStr) +
+        this.undefinedNumToNumber(score.yahtzee) +
+        this.undefinedNumToNumber(score.yahtzeeBonusCounter) * 100 +
+        this.undefinedNumToNumber(score.chance);
+
+      const scoreToUpdate = {
+        ...score,
+        grandTotal: grandTotal,
+      };
+
+      this.state.updateScoreData(scoreToUpdate);
+    }
+  }
+
+  private undefinedNumToNumber(maybeNum: number | undefined) {
+    return maybeNum == undefined ? 0 : maybeNum;
   }
 }
