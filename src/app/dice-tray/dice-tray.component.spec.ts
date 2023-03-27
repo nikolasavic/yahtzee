@@ -106,6 +106,17 @@ describe('DiceTrayComponent', () => {
       expect(component.rollRound).toBe(0);
       expect(component.paused).toBe(false);
     });
+
+    it('pause after round 13', () => {
+      mockRoundObservable.next(13);
+      fixture.detectChanges();
+
+      expect(component.paused).toBe(false);
+
+      mockRoundObservable.next(14);
+      fixture.detectChanges();
+      expect(component.paused).toBe(true);
+    });
   });
 
   describe('holds', () => {

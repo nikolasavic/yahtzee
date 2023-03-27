@@ -14,8 +14,10 @@ export class DiceTrayComponent {
     private state: GameStateService
   ) {
     this.state.round$.subscribe((round) => {
-      this.gameRound = round;
       this.reset();
+      this.gameRound = round;
+
+      if (this.gameRound > 13) this.paused = true;
     });
   }
 
