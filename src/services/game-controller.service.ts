@@ -57,8 +57,16 @@ export class GameControllerService {
   }
 
   private postRecordUpdate(score: ScoreData) {
-    this.upperBonusUpdate(score);
-    this.grandTotalUpdate(score);
+    const upperBonus = this.upperBonusUpdate(score);
+    const grandTotal = this.grandTotalUpdate(score);
+
+    const scoreToUpdate = {
+      ...score,
+      ...upperBonus,
+      ...grandTotal,
+    };
+
+    this.state.updateScoreData(scoreToUpdate);
   }
 
   private upperBonusUpdate(score: ScoreData) {
@@ -88,7 +96,9 @@ export class GameControllerService {
         grandTotalUpper: total,
       };
 
-      this.state.updateScoreData(scoreToUpdate);
+      return scoreToUpdate;
+    } else {
+      return {};
     }
   }
 
@@ -112,11 +122,12 @@ export class GameControllerService {
         this.undefinedNumToNumber(score.chance);
 
       const scoreToUpdate = {
-        ...score,
         grandTotal: grandTotal,
       };
 
-      this.state.updateScoreData(scoreToUpdate);
+      return scoreToUpdate;
+    } else {
+      return {};
     }
   }
 
